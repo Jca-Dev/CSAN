@@ -18,14 +18,23 @@ a:visited {
     text-decoration: none;
   }
 
+.dropdown-toggle::after {
+    content: none;
+}
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 footer li {
     font-size: 13px;
+}
+
+#social-icon:hover {
+    border-style: solid 1px;
+    border-color:  rgb(0, 179, 255);
 }
 
 footer i:hover {
@@ -39,10 +48,7 @@ footer a:hover {
 /* Navbar css ------------------------------------------------------------ */
 .navbar {
     background: #00be00;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgb(0 0 0);
+    z-index: 99999;
 }
 
 .navbar-brand {
@@ -50,22 +56,39 @@ footer a:hover {
     font-family: 'Raleway', sans-serif;
 }
 
+#account-icon {
+    margin-left: 21px;
+    font-size: 21px;
+}
+
+#cart-icon {
+    margin-left: 2px;
+    font-size: 21px;
+}
+
 /* Media Query ------------------------------------------------------------ */
 @media (min-width: 991px){
-    .nav-item { 
-        transition: all .2s ease-in-out;
-        padding-inline: 6px; 
+    .nav-item {
+        padding-inline: 6px;
+    }
+    .grow { 
+        transition: all .2s ease-in-out; 
     }
         
-    .nav-item:hover { 
-        transform: scale(1.1); 
+    .grow:hover { 
+        transform: scale(1.1);
+    }
+
+    #nav-cart:hover, #nav-account:hover {
+        text-decoration: underline;
     }
 
 }
 
 @media (max-width: 991px){
     .nav-item { 
-        transition: all .2s ease-in-out; 
+        transition: all .2s ease-in-out;
+        width: 6em;
     }
         
     .nav-item:hover { 

@@ -41,36 +41,41 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand fs-1" href="#">CSAN</a>
+        <a class="navbar-brand ms-2 text-light fs-1" href="#">CSAN</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
-            <li class="nav-item fs-4">
-              <a class="nav-link active border border-dark border-2" aria-current="page" href="#">Cassette</a>
+            <li class="nav-item fs-4 grow">
+              <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page" href="#">Cassette</a>
             </li>
-            <li class="nav-item fs-4">
-              <a class="nav-link active border border-dark border-2" aria-current="page" href="#">Horizontal</a>
+            <li class="nav-item fs-4 grow">
+              <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page" href="#">Horizontal</a>
             </li>
-            <li class="nav-item fs-4">
-              <a class="nav-link active border border-dark border-2" aria-current="page" href="#">Rollershade</a>
+            <li class="nav-item fs-4 grow">
+              <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page" href="#">Rollershade</a>
             </li>
           </ul>
-          <ul class="navbar-nav me-0 mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+            <li class="nav-item dropdown" id="nav-account">
+              <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="far fa-user" id="account-icon"></i><br>
                 Account
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">My Info</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Log Out</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Checkout</a>
+            <li class="nav-item" id="nav-cart">
+              <a class="nav-link active text-light" aria-current="page" href="#">
+                <i class="fas fa-shopping-cart" id="cart-icon"></i><br>
+                Cart
+              </a>
             </li>
           </ul>
         </div>
@@ -84,35 +89,45 @@
       <div class="container pt-0">
         <div class="row">
           <div class="col ms-5">
-            <h2 class="ps-5 py-2">Help</h2>
-              <section class="mb-0">
-                <ul>
-                  <li><a class="text-white" href="#" target="_blank">Customer Service</a></li>
-                  <li><a class="text-white" href="#" target="_blank">Returns</a></li>
-                  <li><a class="text-white" href="#" target="_blank">Sitemap</a></li>
-                  <li><a class="text-white" href="#" target="_blank">Email Sign-up Form</a></li>
-                </ul>
-            </section>
+            <div class="dropdown">
+              <a class="dropdown-toggle text-light href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <h2 class="p-2">Help</h2>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#" target="_blank">Customer Service</a></li>
+                <li><a class="dropdown-item" href="#" target="_blank">Returns</a></li>
+                <li><a class="dropdown-item" href="#" target="_blank">Sitemap</a></li>
+                <li><a class="dropdown-item" href="#" target="_blank">Email Sign-up Form</a></li>
+              </ul>
+            </div>
           </div>
           <div class="col">
-              <section class="mb-0">
-                <h2 class="p-2">Legal Information</h2>
-                  <ul>
-                    <li><a class="text-white" href="#" target="_blank">Privacy Policy</a></li>
-                    <li><a class="text-white" href="#" target="_blank">Copyright Notice</a></li>
+                <div class="dropdown">
+                  <a class="dropdown-toggle text-light href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <h2 class="p-2">Legal Information</h2>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#" target="_blank">Privacy Policy</a></li>
+                    <li><a class="dropdown-item" href="#" target="_blank">Copyright Notice</a></li>
                   </ul>
-                </section>
+                </div>
           </div>
           <div class="col">
-            <section class="mb-0">
-              <h2 class="ps-5 py-2">Follow Us</h2>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="https://www.facebook.com" role="button"
-                  target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="https://www.twitter.com" role="button"
-                  target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" href="https://www.instagram.com" role="button"
-                  target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-            </section>
+            <div class="dropdown">
+              <a class="dropdown-toggle text-light href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <h2 class="p-2">Follow Us</h2>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon" href="https://www.facebook.com" role="button"
+                    target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon" href="https://www.twitter.com" role="button"
+                    target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon" href="https://www.instagram.com" role="button"
+                    target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
