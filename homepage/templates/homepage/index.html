@@ -1,2 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row row-cols-3">
+            <div class="m-auto mt-5">
+                <h1 class="text-center mt-5 pe-4">What's Your Style?</h1>
+                <div class="btn-group btn-group-lg mt-5" role="group" aria-label="Button links to products">
+                    <button type="button" class="btn btn-outline-dark">Cassette</button>
+                    <button type="button" class="btn btn-outline-dark">Horizontal</button>
+                    <button type="button" class="btn btn-outline-dark">Rollershade</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
