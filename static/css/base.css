@@ -8,6 +8,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 
 li {
@@ -25,6 +26,12 @@ a:visited {
 .dropdown-toggle::after {
     content: none;
 }
+
+/* homepage css ------------------------------------------------------------ */
+#home-buttons {
+    background: white;
+}
+
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
