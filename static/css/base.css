@@ -27,11 +27,31 @@ a:visited {
     content: none;
 }
 
+.overlay {
+    height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1; 
+}
+
+.img-fluid {
+    float: left;
+    width:  20em;
+    height: 20em;
+    object-fit: cover;
+}
+
 /* homepage css ------------------------------------------------------------ */
 #home-buttons {
     background: white;
 }
-
+/* products css ------------------------------------------------------------ */
+#card:hover {
+    border: solid grey 1px;
+}
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
