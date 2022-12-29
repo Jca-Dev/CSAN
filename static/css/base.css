@@ -52,6 +52,10 @@ a:visited {
 #card:hover {
     border: solid grey 1px;
 }
+/* product detail css ------------------------------------------------------------ */
+.asteriskField {
+    display: none;
+}
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
