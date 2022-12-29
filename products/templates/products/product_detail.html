@@ -30,11 +30,27 @@
                             <a class="text-danger" href="#">Delete</a>
                         </small>
                     {% endif %}
-                    <div class = "post_body">
-                        <p class="mt-3"></p>{{ product.description|safe|truncatewords:"50" }}
-                        <a href="#">read more</a>
-                        </p>
-                    </div>
+                    <p class="half-content">{{ product.description|truncatechars:50 }}<a href="javascript:void();" class="show">read more</a></p>
+                    <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();" class="hide">read less</a></p>
                 </div>
             </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".show").click(function(){
+            $(".half-content").hide(),
+            $(".full-content").show();
+        });
+    });
+    $(document).ready(function(){
+        $(".hide").click(function(){
+            $(".full-content").hide(),
+            $(".half-content").show();
+        });
+    });
+</script>
 {% endblock %}
