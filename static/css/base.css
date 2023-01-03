@@ -44,6 +44,10 @@ a:visited {
     object-fit: cover;
 }
 
+.dd-menu {
+    left: -3rem!important;
+}
+
 /* homepage css ------------------------------------------------------------ */
 #home-buttons {
     background: white;
@@ -164,11 +168,15 @@ footer a:hover {
 @media (max-width: 991px){
     .nav-item { 
         transition: all .2s ease-in-out;
-        width: 6em;
+        width: 7em;
     }
         
     .nav-item:hover { 
         text-decoration: underline;
+    }
+
+    .dd-menu {
+        width: fit-content;
     }
     
 }
