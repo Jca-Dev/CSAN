@@ -48,7 +48,7 @@
 <body class="d-flex flex-column vh-100">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand ms-2 text-light fs-1" href="#">CSAN</a>
+      <a class="navbar-brand ms-2 text-light fs-1" href="{% url 'home' %}">CSAN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -105,7 +105,7 @@
             {% endif %}
           </li>
           <li class="nav-item" id="nav-cart">
-            <a class="nav-link active text-light" aria-current="page" href="#">
+            <a class="nav-link active text-light" aria-current="page" href="{% url 'view_cart' %}">
               <i class="fas fa-shopping-cart" id="cart-icon"></i><br>
               Cart
             </a>
