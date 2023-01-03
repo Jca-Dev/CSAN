@@ -41,6 +41,7 @@
                 <form class="form-css" method="#" novalidate>
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <input type="submit" class="btn btn-dark rounded text-uppercase mt-5" id="submit-btn" type="submit" value="Add to Cart">
                 </form>
             </div>
         </div>
