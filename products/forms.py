@@ -23,14 +23,13 @@ class ProductForm(forms.ModelForm):
         (5, (""))
     )
 
-    color = forms.ChoiceField(widget=forms.RadioSelect, choices=COLOR_CHOICES, required=True, error_messages={
-                    "unique": "Please select a color."
-                    })
+    color = forms.ChoiceField(widget=forms.RadioSelect, choices=COLOR_CHOICES, required=True)
     opacity = forms.ChoiceField(choices=OPACITY_CHOICES, required=True)
-    height = forms.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], label="Height (Inches)", required=True)
-    width = forms.IntegerField(label="Width (Inches)", required=True)
+    height = forms.DecimalField(validators=[MinValueValidator(0), MaxValueValidator(5)], label="Height (Inches)", required=True)
+    width = forms.DecimalField(validators=[MinValueValidator(0), MaxValueValidator(5)], label="Width (Inches)", required=True)
     diameter = forms.ChoiceField(choices=DIAMETER_CHOICES, required=True)
+    quantity = forms.IntegerField(validators=[MinValueValidator(0)], required=True)
 
     class Meta:
         model = Product
-        fields = ['color', 'opacity', 'height', 'width', 'diameter']
+        fields = ['color', 'opacity', 'height', 'width', 'diameter', 'quantity']

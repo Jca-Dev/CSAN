@@ -26,9 +26,9 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     form = ProductForm()
 
-    context = {
+    data = {
         'product': product,
         'form': form
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product_detail.html', data)
