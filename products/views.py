@@ -1,13 +1,21 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Category
 from .forms import ProductForm
 
 
 def all_products(request):
-    products = Product.objects.all()
+    category = request.GET.get('category')
+
+    if category is None:
+        products = Product.objects.all()
+    else:
+        products = Product.objects.filter(category__name=category)
+
+    categories = Category.objects.all()
 
     data = {
-        'products': products
+        'products': products,
+        'categories': categories
     }
 
     return render(request, 'products/products.html', data)

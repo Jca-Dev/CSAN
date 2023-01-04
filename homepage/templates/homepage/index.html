@@ -7,9 +7,15 @@
             <div class="m-auto mt-5">
                 <h1 class="text-center mt-5 pe-4 fs-1 fw-bolder">What's Your Style?</h1>
                 <div class="btn-group btn-group-lg mt-5" id="home-buttons" role="group" aria-label="Button links to products">
-                    <button type="button" class="btn btn-outline-dark fw-bold">Cassette</button>
-                    <button type="button" class="btn btn-outline-dark fw-bold">Horizontal</button>
-                    <button type="button" class="btn btn-outline-dark fw-bold">Rollershade</button>
+                    <button type="button" class="btn btn-outline-dark fw-bold">
+                        <a href="{% url 'products' %}?category=Cassette">Cassette</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark fw-bold">
+                        <a href="{% url 'products' %}?category=Horizontal">Horizontal</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark fw-bold">
+                        <a href="{% url 'products' %}?category=Rollershade">Rollershade</a>
+                    </button>
                 </div>
             </div>
         </div>
