@@ -95,7 +95,7 @@
                 </div>
                 {% else %}
                     <p class="lead text-center pt-5 mb-5">Your cart is empty.</p>
-                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-outline-dark rounded btn-lg">
+                    <a href="{% url 'home' %}" class="btn btn-outline-dark rounded btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -105,4 +105,32 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
+
+<script type="text/javascript">
+    $('.update-cart').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    $('.remove-cart-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}

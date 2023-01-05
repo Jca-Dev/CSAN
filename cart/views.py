@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from products.models import Product
 
 
@@ -18,6 +18,7 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     print(request.session['cart'])
+    print(request.POST)
     return redirect(redirect_url)
 
 
@@ -32,3 +33,15 @@ def adjust_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, item_id):
+    try:
+        cart = request.session.get('cart', {})
+        cart.pop(item_id)
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        print({e})
+        return HttpResponse(status=500)

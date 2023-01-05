@@ -5,22 +5,22 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class ProductForm(forms.ModelForm):
     OPACITY_CHOICES = (
-        (1, ("3%")),
-        (2, ("5%")),
-        (3, ("10%")),
-        (4, ("20%")),
-        (5, ("Blackout"))
+        ("3%", ("3%")),
+        ("5%", ("5%")),
+        ("10%", ("10%")),
+        ("20%", ("20%")),
+        ("Blackout", ("Blackout"))
     )
     DIAMETER_CHOICES = (
-        (1, ("Inside")),
-        (2, ("Outside"))
+        ("Inside", ("Inside")),
+        ("Outside", ("Outside"))
     )
     COLOR_CHOICES = (
-        (1, ("")),
-        (2, ("")),
-        (3, ("")),
-        (4, ("")),
-        (5, (""))
+        ("Black", ("")),
+        ("White", ("")),
+        ("Blue", ("")),
+        ("Red", ("")),
+        ("Green", (""))
     )
 
     color = forms.ChoiceField(widget=forms.RadioSelect, choices=COLOR_CHOICES, required=True)
@@ -33,3 +33,6 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['color', 'opacity', 'height', 'width', 'diameter', 'quantity']
+        widgets = {
+            'color': forms.RadioSelect(attrs={"required": "required"}),
+        }

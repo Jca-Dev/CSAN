@@ -42,7 +42,7 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <input type="submit" class="btn btn-dark rounded text-light text-uppercase mt-0 end-buttons" id="submit-btn" type="submit" value="Add to Cart">
-                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-dark text-light rounded mt-0 ms-5 end-buttons">
+                    <a href="{% url 'home'%}" class="btn btn-dark text-light rounded mt-0 ms-5 end-buttons">
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">

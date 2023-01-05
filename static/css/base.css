@@ -112,6 +112,10 @@ input[type='radio']:checked {
     margin-bottom: 1rem;
 }
 
+.numberinput {
+    width: 20%;
+}
+
 /* cart css ------------------------------------------------------------ */
 .cart-img {
     width: 200px;

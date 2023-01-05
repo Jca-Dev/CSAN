@@ -7,8 +7,6 @@
                 data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
         </div>
     </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-sm p-0 text-primary">Update</button>
-        <button type="submit" class="btn btn-sm text-danger" id="remove_{{ item.item_id }}">Remove</button>
-    </div>
 </form>
+<a class="update-cart text-info"><small>Update</small></a>
+<a class="remove-cart-item text-danger float-right ms-1" id="remove_{{ item.item_id }}"><small>Remove</small></a>
