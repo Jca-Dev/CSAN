@@ -39,7 +39,7 @@
                                 <p><strong>Subtotal: </strong>${{ item.product.price }}</p>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <!-- cart quantity form here-->
+                                {% include "cart/quantity-form.html" %}
                             </div>
                         </div>
                         <div class="row"><div class="col"><hr></div></div>
@@ -74,7 +74,7 @@
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <!-- cart quantity form here-->
+                                    {% include "cart/quantity-form.html" %}
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price }}</p>
