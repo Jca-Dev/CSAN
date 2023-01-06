@@ -79,7 +79,7 @@
             {% if request.user.is_authenticated %}
             <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
               {% if request.user.is_staff %}
-              <li><a class="dropdown-item" href="#">Product Managment</a></li>
+              <li><a class="dropdown-item" href="{% url 'add_product' %}">Add Products</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
