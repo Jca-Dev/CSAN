@@ -116,6 +116,14 @@ input[type='radio']:checked {
     width: 20%;
 }
 
+.help-block {
+    display: none;
+}
+
+.show, .hide {
+    color: blue;
+}
+
 /* cart css ------------------------------------------------------------ */
 .cart-img {
     width: 200px;
