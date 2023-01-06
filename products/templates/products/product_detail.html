@@ -27,7 +27,7 @@
 
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a class="text-primary" href="#">Edit</a> |
+                    <a class="text-primary" href="{% url 'edit_product' product.id %}">Edit</a> |
                     <a class="text-danger" href="#">Delete</a>
                 </small>
                 {% endif %}
