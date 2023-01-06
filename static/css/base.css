@@ -170,10 +170,37 @@ footer a:hover {
     font-size: 21px;
 }
 
+.account-list, hr {
+    color: black!important;
+}
+
 #cart-icon {
     margin-left: 2px;
     font-size: 21px;
 }
+
+/* Allauth CSS ------------------------------------------------------------ */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: black
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	text-decoration: underline;
+}
+
+
 
 /* Media Query ------------------------------------------------------------ */
 @media (min-width: 991px){
@@ -208,4 +235,7 @@ footer a:hover {
         width: fit-content;
     }
     
+    #nav-cart {
+        padding-left: 1em;
+    }
 }
