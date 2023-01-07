@@ -130,6 +130,11 @@ input[type='radio']:checked {
     height: 200px;
 }
 
+.update-cart:hover, .remove-cart-item:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
