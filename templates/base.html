@@ -74,7 +74,7 @@
             <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               <i class="far fa-user" id="account-icon"></i><br>
-              Account
+              <span id="account-span">Account</span>
             </a>
             {% if request.user.is_authenticated %}
             <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">

@@ -59,7 +59,31 @@ a:visited {
 }
 /* products css ------------------------------------------------------------ */
 #card:hover {
-    border: solid grey 1px;
+    border: solid grey -1px;
+}
+/* product detail css ------------------------------------------------------------ */
+.asteriskField {
+    display: none;
+}
+
+.end-buttons:hover {
+    text-decoration: underline;
+}
+
+.control-group {
+    margin-bottom: 1rem;
+}
+
+.numberinput {
+    width: 20%;
+}
+
+.help-block {
+    display: none;
+}
+
+.show, .hide {
+    color: blue;
 }
 
 /* radio css */
@@ -102,31 +126,6 @@ input[type='radio']:checked {
     background: green;
     border: 3px solid green;
 }
-/* product detail css ------------------------------------------------------------ */
-.asteriskField {
-    display: none;
-}
-
-.end-buttons:hover {
-    text-decoration: underline;
-}
-
-.control-group {
-    margin-bottom: 1rem;
-}
-
-.numberinput {
-    width: 20%;
-}
-
-.help-block {
-    display: none;
-}
-
-.show, .hide {
-    color: blue;
-}
-
 /* cart css ------------------------------------------------------------ */
 .cart-img {
     width: 200px;
@@ -240,6 +239,7 @@ footer a:hover {
     .nav-item { 
         transition: all .2s ease-in-out;
         width: 7em;
+        text-align: center;
     }
         
     .nav-item:hover { 
@@ -249,8 +249,18 @@ footer a:hover {
     .dd-menu {
         width: fit-content;
     }
+
+    #account-span {
+        padding-left: 1.1rem;
+    }
     
     #nav-cart {
         padding-left: 1em;
+    }
+
+    #home-buttons {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
     }
 }
