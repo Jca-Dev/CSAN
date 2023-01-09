@@ -88,33 +88,51 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              </li>
-              <li><a class="dropdown-item account-list" href="{% url 'account_logout' %}">Log Out</a></li>
-            </ul>
-            {% else %}
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item account-list" href="{% url 'account_login' %}">Login</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item account-list" href="{% url 'account_signup' %}">Register</a></li>
-            </ul>
-            {% endif %}
           </li>
-          <li class="nav-item" id="nav-cart">
-            <a class="nav-link active text-light" aria-current="page" href="{% url 'view_cart' %}">
-              <i class="fas fa-shopping-cart" id="cart-icon"></i><br>
-              Cart
-            </a>
+          <li><a class="dropdown-item account-list" href="{% url 'account_logout' %}">Log Out</a></li>
+        </ul>
+        {% else %}
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item account-list" href="{% url 'account_login' %}">Login</a></li>
+          <li>
+            <hr class="dropdown-divider">
           </li>
+          <li><a class="dropdown-item account-list" href="{% url 'account_signup' %}">Register</a></li>
+        </ul>
+        {% endif %}
+        </li>
+        <li class="nav-item" id="nav-cart">
+          <a class="nav-link active text-light" aria-current="page" href="{% url 'view_cart' %}">
+            <i class="fas fa-shopping-cart" id="cart-icon"></i><br>
+            Cart
+          </a>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  {% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
   {% block content %}
   {% endblock %}
-  
+
   <div class="clearfix flex-grow-1"></div>
   <footer class="text-white fixed-bottom" style="background-color: #4c4c4c;">
     <div class="container pt-0">
@@ -171,6 +189,14 @@
   </footer>
 
   {% block postloadjs %}
+  <script type="text/javascript">
+    var toastElList = [].slice
+      .call(document.querySelectorAll('.toast'));
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show());
+  </script>
   {% endblock %}
 
 </body>

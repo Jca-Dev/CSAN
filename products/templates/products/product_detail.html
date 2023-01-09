@@ -53,6 +53,7 @@
     {% endblock %}
 
     {% block postloadjs %}
+    {{ block.super }}
     <script type="text/javascript">
         $(document).ready(function () {
             $(".show").click(function () {

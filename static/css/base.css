@@ -49,6 +49,10 @@ a:visited {
 .dd-menu {
     left: -3rem!important;
 }
+/* toasts css ------------------------------------------------------------ */
+.toast-index {
+    z-index: 99999;
+}
 
 /* homepage css ------------------------------------------------------------ */
 #home-buttons {
