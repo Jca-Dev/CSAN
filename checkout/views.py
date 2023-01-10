@@ -58,7 +58,6 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
-            print(item_data)
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -66,11 +65,6 @@ def checkout(request):
                             order=order,
                             product=product,
                             product_color=item_data,
-                            opacity=item_data,
-                            height=item_data,
-                            width=item_data,
-                            diameter=item_data,
-                            quantity=item_data,
                         )
                     order_line_item.save()
                 except Product.DoesNotExist:
