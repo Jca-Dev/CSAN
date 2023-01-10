@@ -48,11 +48,6 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_color = models.CharField(max_length=5, null=False, blank=False)
-    opacity = models.CharField(max_length=8, null=False, blank=False)
-    height = models.DecimalField(max_digits=7, decimal_places=3, null=False, blank=False, default=0)
-    width = models.DecimalField(max_digits=7, decimal_places=3, null=False, blank=False, default=0)
-    diameter = models.CharField(max_length=7, null=False, blank=False)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 

@@ -6,11 +6,6 @@ from products.models import Product
 
 def cart_contents(request):
     cart_items = []
-    color = (request.POST.get('color'))
-    opacity = (request.POST.get('height'))
-    height = (request.POST.get('height'))
-    width = (request.POST.get('width'))
-    diameter = (request.POST.get('diameter'))
     total = 0
     product_count = 0
     cart = request.session.get('cart', {})

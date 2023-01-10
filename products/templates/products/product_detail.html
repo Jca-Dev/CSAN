@@ -31,7 +31,7 @@
                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                 </small>
                 {% endif %}
-                <p class="half-content">{{ product.description|truncatechars:50 }}<a href="javascript:void();"
+                <p class="half-content">{{ product.description|truncatechars:100 }}<a href="javascript:void();"
                         class="show">read more</a>
                 </p>
                 <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
