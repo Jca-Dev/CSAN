@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -19,3 +20,22 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_rating(self):
+        reviews_total = 0
+
+        for review in self.reviews.all():
+            reviews_total += review.rating
+
+        if reviews_total > 0:
+            return reviews_total / self.reviews.count()
+
+        return 0
+
+
+class Review(models.Model):
+    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
+    rating = models.IntegerField(default=4)
+    content = models.CharField(max_length=500, null=True, blank=True)
+    created_by = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

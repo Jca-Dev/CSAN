@@ -35,6 +35,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <p class="lead mb-1 text-left font-weight-bold">${{ product.price }}</p>
+                                        {% if product.get_rating > 0 %}
+                                        <span class="lead fs-6">Rating: {{ product.get_rating }} / 5</span> <br>
+                                        {% else %}
+                                        <span class="lead fs-6">No ratings yet</span> <br>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

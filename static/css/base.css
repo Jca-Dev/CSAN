@@ -69,6 +69,13 @@ a:visited {
 #card:hover {
     border: solid grey -1px;
 }
+
+#div_id_rating {
+    display: inline-flex;
+}
+#id_rating {
+    margin-left: 10px;
+}
 /* product detail css ------------------------------------------------------------ */
 .asteriskField {
     display: none;

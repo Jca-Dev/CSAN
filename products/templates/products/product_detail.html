@@ -11,19 +11,25 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid mb-5" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid mb-2" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid mb-5" src="{{ MEDIA_URL }}/media/noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid mb-2" src="{{ MEDIA_URL }}/media/noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
+            
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
                 <h2 class="mb-1">{{ product.name }}</h2>
-                <p class="lead mb-1 text-left font-weight-bold">${{ product.price }}</p>
+                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                {% if product.get_rating > 0 %}
+                <span class="lead fs-6">Rating: {{ product.get_rating }} / 5</span> <br>
+                {% else %}
+                <span class="lead fs-6">No ratings yet</span> <br>
+                {% endif %}
 
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
@@ -48,6 +54,29 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        {% if request.user.is_authenticated %}
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2 mt-3">
+                <form class="form-css" action="." method="POST">
+                    {% csrf_token %}
+                    {{ rform|crispy }}
+                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase mt-0 end-buttons" id="submit-btn" type="submit" value="Submit Review">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+            </div>
+        {% endif %}
+        <hr class="mt-2">
+        <div class="container text-center w-75 mb-2"><h3>Reviews</h3></div>
+            {% for review in product.reviews.all %}
+                <div class="container shadow px-1 mb-2 bg-grey rounded w-75">
+                    <i class="far fa-user pe-1 mb-2"></i><span class="fw-normal me-1">{{ review.created_by }}</span>
+                    <strong>Rating: </strong> <span class="fw-normal">{{ review.rating }}/5</span> <br>
+                    <span class="fw-normal">{{ review.created_at|date:"F-Y" }}</span><hr class="mt-1">
+                    <p class="fw-normal">{{ review.content }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
     {% endblock %}

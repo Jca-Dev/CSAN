@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from .models import Product, Category
-from .forms import ProductForm, AddProductForm
+from .models import Product, Category, Review
+from .forms import ProductForm, AddProductForm, ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -27,11 +27,32 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     form = ProductForm()
+    rform = ReviewForm
 
     data = {
         'product': product,
-        'form': form
+        'form': form,
+        'rform': rform
     }
+
+    if request.method == 'POST':
+        rating = request.POST.get('rating', 3)
+        content = request.POST.get('content', '')
+
+        if content:
+            reviews = Review.objects.filter(created_by=request.user, product=product)
+
+            if reviews.count() > 0:
+                messages.error(request, 'You have already given your review on this product.')
+            else:
+                review = Review.objects.create(
+                    product=product,
+                    rating=rating,
+                    content=content,
+                    created_by=request.user
+                )
+
+            return redirect(reverse('product_detail', args=[product.id]))
 
     return render(request, 'products/product_detail.html', data)
 
