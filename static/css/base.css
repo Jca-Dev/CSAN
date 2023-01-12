@@ -57,6 +57,10 @@ a:visited {
 .end-buttons:hover {
     text-decoration: underline;
 }
+/* 404 page css ------------------------------------------------------------ */
+.bg-404 {
+    background: #ececec87;
+}
 /* toasts css ------------------------------------------------------------ */
 .toast-index {
     z-index: 99999;
@@ -67,7 +71,7 @@ a:visited {
 }
 /* products css ------------------------------------------------------------ */
 #card:hover {
-    border: solid grey -1px;
+    box-shadow: 0.125rem 0.25rem 15px 0px;
 }
 
 #div_id_rating {
