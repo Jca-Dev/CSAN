@@ -307,7 +307,9 @@ footer a:hover {
 	text-decoration: underline;
 }
 
-
+.socialaccount_providers {
+    width: fit-content;
+}
 
 /* Media Query ------------------------------------------------------------ */
 @media (min-width: 991px){
