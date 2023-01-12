@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     'crispy_forms',
     'homepage',
     'products',
@@ -73,6 +75,23 @@ TEMPLATES = [
         },
     },
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '',
+            'secret': '',
+            'key': ''
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '',
+            'secret': '',
+            'key': ''
+        }
+    },
+}
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
