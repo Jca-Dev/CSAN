@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container shadow bg-light mt-5 w-75">
+    <div class="info-wrap w-100 p-lg-5 p-4">
+        <h3 class="mb-4 mt-md-2">Contact Us</h3> 
+        <hr class="mb-5">
+        <div class="dbox w-100 d-flex align-items-start">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <span class="fa fa-map-marker pe-2"></span>
+            </div>
+            <div class="text pl-3">
+                <p><span>Address:</span> csan, 21st Street, New York NY 10016</p>
+            </div>
+        </div>
+        <div class="dbox w-100 d-flex align-items-center mb-2">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <span class="fa fa-phone pe-2"></span>
+            </div>
+            <div class="text pl-3">
+                <p><span>Phone:</span> <a href="#">+ 1235 2355 98</a></p>
+            </div>
+        </div>
+        <div class="dbox w-100 d-flex align-items-center mb-2">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <span class="fa fa-paper-plane pe-2"></span>
+            </div>
+            <div class="text pl-3">
+                <p><span>Email: </span><span>customerservice@csan.com</span></p>
+            </div>
+        </div>
+{% endblock %}
