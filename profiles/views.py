@@ -59,7 +59,7 @@ def add_to_wishlist(request, id):
     product = get_object_or_404(Product, id=id)
     if product.user_wishlist.filter(id=request.user.id).exists():
         product.user_wishlist.remove(request.user)
-        messages.info(request, f'Removed {product.name} from your wishlist <a href="/">Go to Wishlist</a>', extra_tags='safe')
+        messages.info(request, f'Removed {product.name} from your wishlist.')
     else:
         product.user_wishlist.add(request.user)
         messages.info(request, f'Added {product.name} to your wishlist')
