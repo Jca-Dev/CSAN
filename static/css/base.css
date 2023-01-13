@@ -73,6 +73,16 @@ a:visited {
     background: white;
 }
 
+.info-blind {
+    width: 25rem;
+    position: relative;
+    float: right;
+}
+
+.h-btn:hover {
+    box-shadow: 0rem 0rem 5px!important;
+}
+
 /* products css ------------------------------------------------------------ */
 #card:hover {
     box-shadow: 0.125rem 0.25rem 15px 0px;
@@ -381,5 +391,12 @@ hr {
         display: flex;
         flex-direction: column;
         width: fit-content;
+    }
+
+    .info-blind {
+        position: relative;
+        margin: auto;
+        padding-top: 0.1rem;
+        float: none;
     }
 }

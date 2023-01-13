@@ -2,22 +2,34 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
-        <div class="row row-cols-3">
-            <div class="m-auto mt-5">
-                <h1 class="text-center mt-5 pe-4 fs-1 fw-bolder">What's Your Style?</h1>
-                <div class="btn-group btn-group-lg mt-5" id="home-buttons" role="group" aria-label="Button links to products">
-                    <button type="button" class="btn btn-outline-dark fw-bold">
-                        <a aria-label="Button link to Cassettes" href="{% url 'products' %}?category=Cassette">Cassette</a>
-                    </button>
-                    <button type="button" class="btn btn-outline-dark fw-bold">
-                        <a aria-label="Button link to Horizontals" href="{% url 'products' %}?category=Horizontal">Horizontal</a>
-                    </button>
-                    <button type="button" class="btn btn-outline-dark fw-bold">
-                        <a aria-label="Button link to Rollershades" href="{% url 'products' %}?category=Rollershade">Rollershade</a>
-                    </button>
-                </div>
-            </div>
+<div class="container">
+    <div class="row d-flex justify-content-center ">
+        <h1 class="text-center mt-5 fs-1 fw-bolder">Choose Your Style</h1>
+
+        <div class="btn-group rounded shadow btn-group-lg p-0 mt-5" id="home-buttons" role="group"
+            aria-label="Button links to products">
+            <button type="button" class="h-btn btn fw-bold">
+                <a aria-label="Button link to Cassettes" href="{% url 'products' %}?category=Cassette">Cassette</a>
+            </button>
+            <button type="button" class="h-btn btn fw-bold">
+                <a aria-label="Button link to Horizontals"
+                    href="{% url 'products' %}?category=Horizontal">Horizontal</a>
+            </button>
+            <button type="button" class="h-btn btn fw-bold">
+                <a aria-label="Button link to Rollershades"
+                    href="{% url 'products' %}?category=Rollershade">Rollershade</a>
+            </button>
         </div>
+
     </div>
+    <div class="info-blind bg-light mt-5">
+        <h2 class="mt-5 text-center fw-bolder">Information on blinds</h2>
+        <button class="fs-4 mt-3 bg-light h-btn shadow border p-3 rounded w-100"><a
+                href="https://en.wikipedia.org/wiki/Window_blind" target="_blank">What types of blinds are there?</a>
+        </button>
+        <button class="fs-4 mt-3 bg-light h-btn shadow border p-3 rounded w-100"><a
+            href="https://www.architecturaldigest.com/story/how-to-clean-blinds" target="_blank">How to clean blinds</a>
+        </button>
+    </div>
+</div>
 {% endblock %}
