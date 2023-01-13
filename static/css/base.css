@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    
+
     background: url('/media/homepage.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
@@ -19,11 +19,11 @@ a {
     color: inherit;
     text-decoration: none;
 }
- 
+
 a:visited {
     color: inherit;
     text-decoration: none;
-  }
+}
 
 .dropdown-toggle::after {
     content: none;
@@ -31,23 +31,23 @@ a:visited {
 
 .overlay {
     height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
 }
 
 .img-fluid {
     float: left;
-    width:  20em;
+    width: 20em;
     height: 20em;
     object-fit: cover;
 }
 
 .dd-menu {
-    left: -3rem!important;
+    left: -3rem !important;
 }
 
 .end-buttons {
@@ -57,18 +57,22 @@ a:visited {
 .end-buttons:hover {
     text-decoration: underline;
 }
+
 /* 404 page css ------------------------------------------------------------ */
 .bg-404 {
     background: #ececec87;
 }
+
 /* toasts css ------------------------------------------------------------ */
 .toast-index {
     z-index: 99999;
 }
+
 /* homepage css ------------------------------------------------------------ */
 #home-buttons {
     background: white;
 }
+
 /* products css ------------------------------------------------------------ */
 #card:hover {
     box-shadow: 0.125rem 0.25rem 15px 0px;
@@ -77,9 +81,11 @@ a:visited {
 #div_id_rating {
     display: inline-flex;
 }
+
 #id_rating {
     margin-left: 10px;
 }
+
 /* product detail css ------------------------------------------------------------ */
 .asteriskField {
     display: none;
@@ -93,11 +99,20 @@ a:visited {
     width: 20%;
 }
 
+#div_id_quantity {
+    width: 50%;
+}
+
+#id_quantity.numberinput {
+    width: fit-content;
+}
+
 .help-block {
     display: none;
 }
 
-.show, .hide {
+.show,
+.hide {
     color: blue;
 }
 
@@ -112,7 +127,7 @@ input[type='radio'] {
     height: 20px;
     margin-inline: 5px;
 }
-  
+
 input[type='radio']:checked {
     outline: 3px solid rgb(0, 0, 0);
 }
@@ -141,16 +156,19 @@ input[type='radio']:checked {
     background: green;
     border: 3px solid green;
 }
+
 /* cart css ------------------------------------------------------------ */
 .cart-img {
     width: 200px;
     height: 200px;
 }
 
-.update-cart:hover, .remove-cart-item:hover {
+.update-cart:hover,
+.remove-cart-item:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
 /* checkout css ------------------------------------------------------------ */
 .text-info:hover {
     text-decoration: underline;
@@ -161,8 +179,8 @@ input[type='radio']:checked {
 }
 
 #loading-overlay {
-	display: none;
-	position: fixed;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -172,7 +190,7 @@ input[type='radio']:checked {
 }
 
 .loading-spinner {
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -182,25 +200,25 @@ input[type='radio']:checked {
 /* STRIPE css  */
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid black;
-  border-radius: 0px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid black;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -224,8 +242,8 @@ select option[value=""] {
 }
 
 #loading-overlay {
-	display: none;
-	position: fixed;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -235,12 +253,13 @@ select option[value=""] {
 }
 
 .loading-spinner {
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     height: 100%;
 }
+
 /* footer css ------------------------------------------------------------ */
 footer h2 {
     font-size: 15px;
@@ -254,7 +273,7 @@ footer li {
 
 #social-icon:hover {
     border-style: solid 1px;
-    border-color:  rgb(0, 179, 255);
+    border-color: rgb(0, 179, 255);
 }
 
 footer i:hover {
@@ -263,7 +282,7 @@ footer i:hover {
 
 footer a:hover {
     text-decoration: underline;
-  }
+}
 
 /* Navbar css ------------------------------------------------------------ */
 .navbar {
@@ -281,8 +300,9 @@ footer a:hover {
     font-size: 21px;
 }
 
-.account-list, hr {
-    color: black!important;
+.account-list,
+hr {
+    color: black !important;
 }
 
 #cart-icon {
@@ -307,8 +327,8 @@ footer a:hover {
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	text-decoration: underline;
+.allauth-form-inner-content input[type='submit']:hover {
+    text-decoration: underline;
 }
 
 .socialaccount_providers {
@@ -316,32 +336,34 @@ footer a:hover {
 }
 
 /* Media Query ------------------------------------------------------------ */
-@media (min-width: 991px){
+@media (min-width: 991px) {
     .nav-item {
         padding-inline: 6px;
     }
-    .grow { 
-        transition: all .2s ease-in-out; 
+
+    .grow {
+        transition: all .2s ease-in-out;
     }
-        
-    .grow:hover { 
+
+    .grow:hover {
         transform: scale(1.1);
     }
 
-    #nav-cart:hover, #nav-account:hover {
+    #nav-cart:hover,
+    #nav-account:hover {
         text-decoration: underline;
     }
 
 }
 
-@media (max-width: 991px){
-    .nav-item { 
+@media (max-width: 991px) {
+    .nav-item {
         transition: all .2s ease-in-out;
         width: 7em;
         text-align: center;
     }
-        
-    .nav-item:hover { 
+
+    .nav-item:hover {
         text-decoration: underline;
     }
 
@@ -352,7 +374,7 @@ footer a:hover {
     #account-span {
         padding-left: 1.1rem;
     }
-    
+
     #nav-cart {
         padding-left: 1em;
     }

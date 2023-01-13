@@ -3,7 +3,7 @@ from .models import Product, Review
 
 
 class ProductForm(forms.ModelForm):
-    quantity = forms.IntegerField(min_value=1, required=True)
+    quantity = forms.IntegerField(min_value=1, max_value=99, required=True)
 
     class Meta:
         model = Product

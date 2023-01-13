@@ -43,13 +43,18 @@
                 <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
                         class="hide">read less</a>
                 </p>
-
                 <form class="form-css" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase mt-0 end-buttons" id="submit-btn" type="submit" value="Add to Cart">
-                    <a href="{% url 'home'%}" class="btn btn-dark text-light rounded mt-0 ms-5 end-buttons">
-                        <span class="text-uppercase">Keep Shopping</span>
+                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase end-buttons w-50" id="submit-btn" type="submit" value="Add to Cart">
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-dark text-light text-uppercase rounded ms-2 end-buttons">
+                        Add to Wishlist
+                    </a>
+                        <br>
+                    {% endif %}
+                    <a href="{% url 'home'%}" class="btn btn-dark text-uppercase text-light rounded mt-3 end-buttons w-50">
+                        Keep Shopping
                     </a>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
