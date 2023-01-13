@@ -330,11 +330,9 @@ hr {
 .allauth-form-inner-content input[type='submit']:hover {
     text-decoration: underline;
 }
-
-.socialaccount_providers {
-    width: fit-content;
+.g-btn:hover {
+    box-shadow: inset 0rem 0rem 15px!important;
 }
-
 /* Media Query ------------------------------------------------------------ */
 @media (min-width: 991px) {
     .nav-item {

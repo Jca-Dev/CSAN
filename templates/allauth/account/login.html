@@ -13,14 +13,14 @@
   {% get_providers as socialaccount_providers %}
 
   {% if socialaccount_providers %}
-  <p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+  <p>{% blocktrans with site.name as site_name %}Please log in with one
+  of your existing third party accounts. Or, <a class="text-primary" href="{{ signup_url }}">sign up</a>
+  for a {{ site_name }} account and login below:{% endblocktrans %}</p>
 
   <div class="socialaccount_ballot">
 
-    <ul class="socialaccount_providers bg-dark rounded-circle text-light p-2 ms-2">
-      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    <ul class="socialaccount_providers p-2 ms-2">
+      <button class="g-btn bg-danger text-light fw-bold shadow border-0 rounded px-5 py-2 text-center">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</button>
     </ul>
 
     <div class="login-or pb-2">{% trans 'or' %}</div>
@@ -40,8 +40,8 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button class="btn-dark rounded"><a href="{% url 'home' %}">Home</a></button>
-    <button class="rounded btn-dark" type="submit">{% trans "Login" %}</button>
+    <button class="btn-dark rounded fw-normal end-buttons"><a href="{% url 'home' %}">Home</a></button>
+    <button class="rounded btn-dark fw-normal end-buttons" type="submit">{% trans "Login" %}</button>
     <p class="mt-2">
       <a class="button text-primary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </p>
