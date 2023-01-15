@@ -383,4 +383,14 @@ hr {
     #id_content {
         width: 100%!important;
     }
+
+    .mc-layout__modalContent {
+        height: 18rem;
+    }
+
+    .mc-modal {
+        display: flex;
+        top: 18rem;
+        left: 3rem;
+    }
 }
