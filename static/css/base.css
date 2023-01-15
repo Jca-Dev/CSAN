@@ -251,8 +251,9 @@ footer li {
     font-size: 13px;
 }
 
-#social-icon:hover {
-    border-style: solid 1px;
+.social-icon:hover {
+    border: solid;
+    border-width: 1px;
     border-color: rgb(0, 179, 255);
 }
 
