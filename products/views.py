@@ -3,21 +3,36 @@ from .models import Product, Category, Review
 from .forms import ProductForm, AddProductForm, ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models.functions import Lower
+from django.db.models import Q
 
 
 def all_products(request):
-    category = request.GET.get('category')
+    products = Product.objects.all()
+    category = None
+    categories = None
+    query = None
 
-    if category is None:
-        products = Product.objects.all()
-    else:
-        products = Product.objects.filter(category__name=category)
+    if request.GET:
 
-    categories = Category.objects.all()
+        if 'category' in request.GET:
+            category = request.GET.get('category')
+            products = Product.objects.filter(category__name=category)
+            categories = Category.objects.all()
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
 
     data = {
         'products': products,
-        'categories': categories
+        'search_term': query,
+        'categories': categories,
     }
 
     return render(request, 'products/products.html', data)

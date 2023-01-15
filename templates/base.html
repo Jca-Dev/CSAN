@@ -72,7 +72,13 @@
               href="{% url 'products' %}?category=Rollershade">Rollershade</a>
           </li>
         </ul>
-
+        <form class="d-flex" method="GET" action="{% url 'products' %}">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+          <button class="btn btn-light border rounded border-dark grow me-4" type="submit">
+            <i class="fas fa-search">
+            </i>
+        </span></button>
+        </form>
         <ul class="navbar-nav me-4 mb-2 mb-lg-0">
           <li class="nav-item dropdown" id="nav-account">
             <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button"
