@@ -8,28 +8,25 @@
 
         <div class="btn-group rounded shadow btn-group-lg p-0 mt-5" id="home-buttons" role="group"
             aria-label="Button links to products">
-            <button type="button" class="h-btn btn fw-bold">
-                <a class="link-dark" aria-label="Button link to Cassettes" href="{% url 'products' %}?category=Cassette">Cassette</a>
-            </button>
-            <button type="button" class="h-btn btn border-start border-end fw-bold">
-                <a class="link-dark" aria-label="Button link to Horizontals"
-                    href="{% url 'products' %}?category=Horizontal">Horizontal</a>
-            </button>
-            <button type="button" class="h-btn btn fw-bold">
-                <a class="link-dark" aria-label="Button link to Rollershades"
-                    href="{% url 'products' %}?category=Rollershade">Rollershade</a>
-            </button>
+            <a class="link-dark h-btn btn fw-bold" aria-label="Button link to Cassettes"
+                href="{% url 'products' %}?category=Cassette">Cassette</a>
+            <a class="link-dark h-btn btn border-start border-end fw-bold" aria-label="Button link to Horizontals"
+                href="{% url 'products' %}?category=Horizontal">Horizontal</a>
+            <a class="link-dark h-btn btn fw-bold" aria-label="Button link to Rollershades"
+                href="{% url 'products' %}?category=Rollershade">Rollershade</a>
         </div>
 
     </div>
-    <div class="info-blind bg-light mt-5">
+    <div class="info-blind bg-light mt-3">
         <h2 class="mt-5 text-center fw-bolder">Information on blinds</h2>
-        <button class="fs-4 mt-3 bg-light h-btn shadow border p-3 rounded w-100"><a
-                href="https://en.wikipedia.org/wiki/Window_blind" target="_blank">What types of blinds are there?</a>
-        </button>
-        <button class="fs-4 mt-3 bg-light h-btn shadow border p-3 rounded w-100"><a
-            href="https://www.architecturaldigest.com/story/how-to-clean-blinds" target="_blank">How to clean blinds</a>
-        </button>
+        <ul class="p-0 text-center">
+            <li class="p-2"><a class="fs-4 mt-3 bg-light h-btn shadow border rounded w-100 px-2"
+                    href="https://en.wikipedia.org/wiki/Window_blind" target="_blank">What types of blinds are
+                    there?</a></li>
+            <li><a class="fs-4 mt-3 bg-light h-btn shadow border rounded w-100 px-2"
+                    href="https://www.architecturaldigest.com/story/how-to-clean-blinds" target="_blank">How to clean
+                    blinds</a></li>
+        </ul>
     </div>
 </div>
 {% endblock %}

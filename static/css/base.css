@@ -331,6 +331,10 @@ hr {
     #nav-account:hover {
         text-decoration: underline;
     }
+    
+    .dropdown-menu-dark {
+        margin-left: 10rem!important;
+    }
 
 }
 

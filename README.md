@@ -11,6 +11,7 @@
 
 <h1>Planning</h1>
 <hr>
+<p>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/4">Here</a></p>
 <p>I used balsamiq wireframes to plan the look and layout of the project. however the final result is not exactly the same as the wireframes.</p>
 
 ![Landing Page Preview](media/screenshots/Landing.png)
@@ -114,6 +115,9 @@ There is also a cookie consent popup that also links the privacy policy and cont
     <li>Paint 3D - to create the logo and edit screenshots for the README.md</li>
     <li>Heroku - for hosting the python code and downloading requirements.</li>
     <li>Pep8 - testing code.</li>
+    <li>Chrome Dev Tools - to action, review and test changes without having to commit and push to the website each time.</li>
+    <li>Lighthouse - testing code.</li>
+    <li>W3C Validation - testing code.</li>
     <li>AWS - amazon hosting service S3 hosts the required static files.</li>
     <li>Database - elephantSQL.</li>
     <li>Mailchimp - hosting user email address data for newsletters.</li>
@@ -152,13 +156,43 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
     <li>Given invalid input such as letters and incorrect amount of data, both resulting in a error message as expected.</li>
     <li>Tried submitting blank forms resulting in error messages as expected.</li>
 </ul>
+<h2>Browsers</h2>
+<ul>
+    <li>Google Chrome</li>
+    <li>Microsoft Edge</li>
+    <li>Mozilla Firefox</li>
+</ul>
+<h2>Devices</h2>
+<ul>
+    <li>Galaxy S8</li>
+    <li>Galazy S21 Ultra</li>
+    <li>Iphone SE</li>
+    <li>Iphone 4</li>
+    <li>Iphone 12 Pro</li>
+    <li>Ipad Air</li>
+    <li>Surface Pro 7</li>
+    <li>Laptop</li>
+    <li>Nest Hub max</li>
+</ul>
 
 <h2>Softwares</h2>
 <ul>
     <li><a href="http://pep8online.com/" target="_blank" rel="noopener">Pep8 Validation Service</a></li>
     <li><a href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener">Google mobile friendly test Service</a></li>
-    
 
+![Google Mobile](media/screenshots/responsive.png)
+    <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
+
+![W3C HTML](/assets/images/html.jpg)
+    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
+
+![W3C CSS](/assets/images/css.jpg)
+    <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Google Chrome Lighthouse</a></li>
+
+![Lighthouse Test](/assets/images/lighthouse.jpg)
+    <li><a href="https://jshint.com/" target="_blank" rel="noopener">JSHint Javascript Validation Service</a></li>
+    
+![JSHint](/assets/images/jshint.jpg)
 </ul>
 
 <h2>Bugs & Fixes</h2>
