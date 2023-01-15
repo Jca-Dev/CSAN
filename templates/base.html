@@ -81,7 +81,7 @@
           <button class="btn btn-light border rounded border-dark grow me-4" type="submit">
             <i class="fas fa-search">
             </i>
-        </span></button>
+            </span></button>
         </form>
         <ul class="navbar-nav me-4 mb-2 mb-lg-0">
           <li class="nav-item dropdown" id="nav-account">
@@ -146,57 +146,60 @@
 
   {% block content %}
   {% endblock %}
-  <div><hr class="mb-5 text-light"></div>
-  <footer class="text-light fixed-bottom" style="background-color: #4c4c4c;">
-    <div class="container pt-0">
-      <div class="row">
-        <div class="col ms-5">
-          <div class="dropdown">
-            <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <h2 class="p-2">Help</h2>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'customer_service' %}" target="_blank">Customer Service</a></li>
-              <li><a class="dropdown-item" href="{% url 'returns' %}" target="_blank">Returns</a></li>
-            </ul>
-          </div>
+  <div>
+    <hr class="mb-5 text-light">
+  </div>
+  <footer class="text-light container-fluid fixed-bottom" style="background-color: #4c4c4c;">
+
+    <div class="row d-flex">
+      <div class="col text-center p-0">
+        <div class="dropdown">
+          <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <h2 class="py-2 m-0">Help</h2>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'customer_service' %}" target="_blank">Customer Service</a></li>
+            <li><a class="dropdown-item" href="{% url 'returns' %}" target="_blank">Returns</a></li>
+          </ul>
         </div>
-        <div class="col">
-          <div class="dropdown">
-            <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <h2 class="p-2">Legal Information</h2>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="https://www.privacypolicygenerator.info/live.php?token=cXfHIKF1soN81fZF1OQKU1J8PuaA3C4K" target="_blank">Privacy Policy</a></li>
-              <li><a class="dropdown-item" href="/media/Copyright-Notice.pdf" target="_blank">Copyright Notice</a></li>
-            </ul>
-          </div>
+      </div>
+      <div class="col text-center p-0">
+        <div class="dropdown">
+          <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <h2 class="p-2">Legal Information</h2>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item"
+                href="https://www.privacypolicygenerator.info/live.php?token=cXfHIKF1soN81fZF1OQKU1J8PuaA3C4K"
+                target="_blank">Privacy Policy</a></li>
+            <li><a class="dropdown-item" href="/media/Copyright-Notice.pdf" target="_blank">Copyright Notice</a></li>
+          </ul>
         </div>
-        <div class="col">
-          <div class="dropdown">
-            <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <h2 class="p-2">Follow Us</h2>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-              <li>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon"
-                  href="https://www.facebook.com" role="button" target="_blank" data-mdb-ripple-color="dark"><i
-                    class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon"
-                  href="https://www.twitter.com" role="button" target="_blank" data-mdb-ripple-color="dark"><i
-                    class="fab fa-twitter"></i></a>
-                <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon"
-                  href="https://www.instagram.com" role="button" target="_blank" data-mdb-ripple-color="dark"><i
-                    class="fab fa-instagram"></i></a>
-              </li>
-            </ul>
-          </div>
+      </div>
+      <div class="col text-center p-0">
+        <div class="dropdown">
+          <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <h2 class="p-2">Follow Us</h2>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+            <li>
+              <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon"
+                href="https://www.facebook.com" role="button" target="_blank" data-mdb-ripple-color="dark"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon" href="https://www.twitter.com"
+                role="button" target="_blank" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-link btn-floating btn-lg text-light m-1" id="social-icon"
+                href="https://www.instagram.com" role="button" target="_blank" data-mdb-ripple-color="dark"><i
+                  class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
   </footer>
 
   {% block postloadjs %}

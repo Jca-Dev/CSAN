@@ -38,17 +38,17 @@
                 </small>
                 {% endif %}
                 <p class="half-content">{{ product.description|truncatechars:100 }}<a href="javascript:void();"
-                        class="show">read more</a>
+                        class="show"> read more</a>
                 </p>
                 <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
-                        class="hide">read less</a>
+                        class="hide"> read less</a>
                 </p>
                 <form class="form-css" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <input type="submit" class="btn btn-dark rounded text-light text-uppercase end-buttons w-50" id="submit-btn" type="submit" value="Add to Cart">
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-dark text-light text-uppercase rounded ms-2 end-buttons">
+                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-wish btn-dark text-light text-uppercase rounded ms-2 end-buttons">
                         Add to Wishlist
                     </a>
                         <br>

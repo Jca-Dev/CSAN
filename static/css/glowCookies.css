@@ -87,7 +87,7 @@
   bottom: 15px;
   border-radius: 20px;
   padding: 20px 25px;
-  margin-bottom: 2rem
+  margin-bottom: 4rem!important;
 }
 
 .glowCookies__banner__1 > h3 {
@@ -130,6 +130,7 @@
       left: 0px;
       right: 0px;
       margin: 7px;
+      margin-bottom: 2rem
   }
 
   .glowCookies__banner__1 .btn__section {
@@ -262,6 +263,7 @@
 /* Prebanner styles */
 /* =========================== */
 .prebanner {
+  display: none;
   position: relative;
   margin-bottom: 2rem;
   bottom: 15px;

@@ -6,7 +6,7 @@
 {% block head_title %}{% trans "login" %}{% endblock %}
 
 {% block content %}
-<div class="container shadow p-5 pt-2 m-auto bg-light w-50">
+<div class="container mobile shadow p-5 pt-2 m-auto bg-light w-50">
   <h2 class="fw-bold mt-1">{% trans "Login" %}</h2>
   <hr class="mt-0">
 
@@ -14,13 +14,14 @@
 
   {% if socialaccount_providers %}
   <p>{% blocktrans with site.name as site_name %}Please log in with one
-  of your existing third party accounts. Or, <a class="text-primary" href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and login below:{% endblocktrans %}</p>
+    of your existing third party accounts. Or, <a class="text-primary" href="{{ signup_url }}">sign up</a>
+    for a {{ site_name }} account and login below:{% endblocktrans %}</p>
 
   <div class="socialaccount_ballot">
 
     <ul class="socialaccount_providers p-2 ms-2">
-      <button class="g-btn bg-danger text-light fw-bold shadow border-0 rounded px-5 py-2 text-center">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</button>
+      <button
+        class="g-btn bg-danger text-light fw-bold shadow border-0 rounded px-5 py-2 text-center">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</button>
     </ul>
 
     <div class="login-or pb-2">{% trans 'or' %}</div>
@@ -31,7 +32,7 @@
 
   {% else %}
   <p>{% blocktrans %}If you have not created an account yet, then please
-  <a class="button text-primary" href="{{ signup_url }}">register</a> first.{% endblocktrans %}</p>
+    <a class="button text-primary" href="{{ signup_url }}">register</a> first.{% endblocktrans %}</p>
   {% endif %}
 
   <form class="login" method="POST" action="{% url 'account_login' %}">
