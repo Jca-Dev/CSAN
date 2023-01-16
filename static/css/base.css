@@ -375,6 +375,17 @@ hr {
         float: none;
     }
 }
+@media (max-width: 500px){
+    .mc-layout__modalContent {
+        height: 18rem;
+    }
+    
+    .mc-modal {
+        display: flex;
+        top: 18rem;
+        left: 3rem;
+    }
+}
 
 @media (max-width: 500px){
     .mobile {
