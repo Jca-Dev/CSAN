@@ -3,15 +3,12 @@
     <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell products in this case blinds directly to consumers.<br> 
     <a href="https://csan.herokuapp.com/">Click Here</a> to go to the live website.
 </p>
-<hr>
-<p>The website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
-
-![Responsive site test](media/screenshots/Responsive.png)
+<p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
 <hr>
 
 <h1>Planning</h1>
 <hr>
-<p>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/4">Here</a></p>
+<h2>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/4">Here</a></h2>
 <p>I used balsamiq wireframes to plan the look and layout of the project. however the final result is not exactly the same as the wireframes.</p>
 
 ![Landing Page Preview](media/screenshots/Landing.png)
@@ -48,7 +45,7 @@
 <hr>
 <h1>Design And Features</h1>
 <ul>
-    <li>Customers can create an account and have their own prodile to store their address details for checkout purposes, leave product reviews and view their order history.</li>
+    <li>Customers can create an account and have their own profile to store their address details for checkout purposes, leave product reviews and view their order history.</li>
     <li>Customers can log in with google Oauth for a fast user friendly registration experience.</li>
     <li>Staff accounts have CRUD functionality over products on the web page and can also log into the dJango admin pannel.</li>
     <li>There are links on the main page to relative information on blind cleaning and types of blinds.</li>
@@ -75,14 +72,15 @@ The user will know where they are on the site as each page has a header displayi
 
 <h2>Future features</h2>
 <ul>
-    <li>Survey sheet selection for multiple surveys. This is why there are f strings in the current code for "scoreboard" sheet.</li>
+    <li>I would like to implement more of the items shown in the product detail page from the wireframes. having a color selector for each blind and multiple pictures of the products.</li>
 </ul>
 <hr>
 
 <h1>Marketing</h1>
 <hr>
-<p>I created a facebook marketing page for reaching potential and existing customers on a popular platform. Hoever this has been taken down by facebook as it's not a genuine business. <br>
-The footer has links to social media pages, if this was a real business then they would link to the social pages of the business</p>
+<p>I created a facebook marketing page for reaching potential and existing customers on a popular platform. However this has been taken down by facebook as it's not a genuine business. <br>
+The footer has links to social media pages, if this was a real business then they would link to the social pages of the business.
+<br> Mailchimp has a newsletter popup for new visitors to the site so they can subscribe their email for news letters and marketing campaigns.</p>
 
 ![Business Page Preview](media/screenshots/fb_page_1.png)
 <hr>
@@ -131,7 +129,7 @@ The project was deployed to Heroku via GitHub by:
     <li>Going to deploy, selecting deployment method as GitHub and typing in the GitHub repository name.</li>
     <li>Finally selecting deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
 </ol>
-The page is now published and the link is in the sett section at the bottom in Domains.
+The page is now published and the link is in the settings section under Domains.
 
 <br>
 
@@ -175,24 +173,21 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
     <li>Nest Hub max</li>
 </ul>
 
-<h2>Softwares</h2>
+<h2>Software Tests</h2>
 <ul>
-    <li><a href="http://pep8online.com/" target="_blank" rel="noopener">Pep8 Validation Service</a></li>
     <li><a href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener">Google mobile friendly test Service</a></li>
 
 ![Google Mobile](media/screenshots/responsive.png)
     <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
 
-![W3C HTML](/assets/images/html.jpg)
+![W3C HTML](media/screenshots/w3c-html.png)
     <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
 
-![W3C CSS](/assets/images/css.jpg)
+![W3C CSS](media/screenshots/wc3-css.png)
     <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Google Chrome Lighthouse</a></li>
 
-![Lighthouse Test](/assets/images/lighthouse.jpg)
-    <li><a href="https://jshint.com/" target="_blank" rel="noopener">JSHint Javascript Validation Service</a></li>
-    
-![JSHint](/assets/images/jshint.jpg)
+![Lighthouse Test](media/screenshots/lighthouse.png)
+    <li><a href="https://jshint.com/" target="_blank" rel="noopener">JSHint Javascript Validation Service tested javascript including third party.</a></li>
 </ul>
 
 <h2>Bugs & Fixes</h2>
@@ -204,7 +199,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 <h2>Known Bugs</h2>
 <ul>
-    <li></li>
+    <li>The Error: Uncaught TypeError: Cannot read properties of null (reading 'appendChild') this is present in a third party script from mailchimp that I dont have access to.</li>
 </ul>
 <hr>
 <h2>Sources/Credits</h2>
@@ -212,3 +207,5 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <ul>
     <li>Gathered information and troubleshooting from <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stackoverflow</li>
     <li>Code Institute's Boutique_ado walkthrough provided a very clear idea on how to create an E-commerce Website in dJango.<a href="https://github.com/Jca-Dev/Love_sandwiches" target="_blank" rel="noopener">GitHub Link</a></li>
+    <li>background image from <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a></li>
+    <li>Icons from <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" rel="noopener">fontawesome</a></li>

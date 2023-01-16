@@ -67,15 +67,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-5 mx-auto mb-2 mb-lg-0">
           <li class="nav-item fs-4 grow">
-            <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page"
+            <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Cassette">Cassette</a>
           </li>
           <li class="nav-item fs-4 grow">
-            <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page"
+            <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Horizontal">Horizontal</a>
           </li>
           <li class="nav-item fs-4 grow">
-            <a class="nav-link bg-light active border rounded border-dark border-2" aria-current="page"
+            <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Rollershade">Rollershade</a>
           </li>
         </ul>
@@ -217,8 +217,8 @@
     var toastElList = [].slice
       .call(document.querySelectorAll('.toast'));
     var toastList = toastElList.map(function (toastEl) {
-      return new bootstrap.Toast(toastEl, {delay: 2000})
-    })
+      return new bootstrap.Toast(toastEl, {delay: 2000});
+    });
     toastList.forEach(toast => toast.show());
   </script>
   {% endblock %}
