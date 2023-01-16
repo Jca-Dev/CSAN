@@ -66,20 +66,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-5 mx-auto mb-2 mb-lg-0">
-          <li class="nav-item fs-4 grow">
+          <li class="nav-item btn-wish fs-4 grow">
             <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Cassette">Cassette</a>
           </li>
-          <li class="nav-item fs-4 grow">
+          <li class="nav-item btn-wish fs-4 grow">
             <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Horizontal">Horizontal</a>
           </li>
-          <li class="nav-item fs-4 grow">
+          <li class="nav-item btn-wish fs-4 grow">
             <a class="nav-link bg-light active rounded" aria-current="page"
               href="{% url 'products' %}?category=Rollershade">Rollershade</a>
           </li>
         </ul>
-        <form class="d-flex" method="GET" action="{% url 'products' %}">
+        <form class="d-flex search-mob ms-5" method="GET" action="{% url 'products' %}">
           <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
           <button class="btn btn-light border rounded border-dark grow me-4" type="submit">
             <i class="fas fa-search"></i>
