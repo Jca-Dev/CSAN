@@ -1,6 +1,6 @@
 <h1>CSAN E-Commerce Webiste</h1>
 <hr>
-    <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell products in this case blinds directly to consumers.<br> 
+    <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell new adjustable technology blinds directly to consumers instead of paying someone else so sell them.<br> 
     <a href="https://csan.herokuapp.com/">Click Here</a> to go to the live website.
 </p>
 <p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
