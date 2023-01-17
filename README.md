@@ -120,6 +120,8 @@ There is also a cookie consent popup that also links the privacy policy and cont
     <li>Database - elephantSQL.</li>
     <li>Mailchimp - hosting user email address data for newsletters.</li>
     <li>Pytest - Automated testing.</li>
+    <li>Coverage - Automated testing.</li>
+    <li>Factory-boy - Automated testing.</li>
 </ul>
 <hr>
 <h1>Deployment</h1>
@@ -191,6 +193,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
     <li><a href="https://jshint.com/" target="_blank" rel="noopener">JSHint Javascript Validation Service tested javascript including third party.</a></li>
 </ul>
 <h2>Unit Tests</h2>
+I used Coverage to Identify tests needed.
+
+![Coverage view](media/screenshots/coverage_start.png)
 <ul>
     <li>(In Progress)</li>
     <li></li>

@@ -1,0 +1,17 @@
+[run]
+omit =
+    */env
+    *settings.py*
+    */__init__
+    */migrations/*
+    *test*
+    */testing/*
+
+[report]
+omit =
+    */env.py
+    *settings.py*
+    */__init__.py
+    */migrations/*
+    *test*
+    */testing/*
