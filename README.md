@@ -119,6 +119,7 @@ There is also a cookie consent popup that also links the privacy policy and cont
     <li>AWS - amazon hosting service S3 hosts the required static files.</li>
     <li>Database - elephantSQL.</li>
     <li>Mailchimp - hosting user email address data for newsletters.</li>
+    <li>Pytest - Automated testing.</li>
 </ul>
 <hr>
 <h1>Deployment</h1>
@@ -191,21 +192,20 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 </ul>
 <h2>Unit Tests</h2>
 <ul>
-    <li>Products testing indidcates functionality for products and reviews models.</li>
-
-![Products Unit Test](media/screenshots/product-test.png)
+    <li>(In Progress)</li>
     <li></li>
     <li></li>
 <h2>Bugs & Fixes</h2>
 <ul>
-   <li></li>
-   <li></li>
+   <li>The screen width on mobiles wasn't showing 100% so the nav bar and content was off the screen and you had to scroll across to see it. - fix - with setting up 100vw in body and html inside base.css.</li>
+   <li>The monkeychimp modal for mobile was covered by the nav bar so users couldnt see it properly or exit it easily. - fix - reduced z-index of nav bar to 50 so it was below monkeychimp modal z-index.</li>
    <li></li>
 </ul>
 
 <h2>Known Bugs</h2>
 <ul>
     <li>The Error: Uncaught TypeError: Cannot read properties of null (reading 'appendChild') this is present in a third party script from mailchimp that I dont have access to.</li>
+    <li>The checkout form validation doesn't show up on the fields apart from the stripe payment field. but it does validate.</li>
 </ul>
 <hr>
 <h2>Sources/Credits</h2>
