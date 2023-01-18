@@ -1,7 +1,8 @@
 import pytest
 from django.urls import reverse
-
+from products import models
 from django import forms
+from checkout import models
 
 
 #def test_category_name(product_category):
@@ -43,3 +44,25 @@ from django import forms
 #
 #    assert form.is_valid() is validity
 #
+#class Test_Product_Get_rating:
+#
+#
+#    @pytest.fixture()
+#    def product(self):
+#        return models.Product()
+#
+#
+#    def test_get_rating_1(self, product):
+#        result = product.get_rating()
+#
+#
+#class Test_Order__generate_order_number:
+#
+#
+#    @pytest.fixture()
+#    def order(self):
+#        return models.Order()
+#
+#
+#    def test__generate_order_number_1(self, order):
+#        result = order._generate_order_number()
