@@ -196,15 +196,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 I used Coverage to Identify tests needed.
 
 ![Coverage view](media/screenshots/coverage_start.png)
-<ul>
-    <li>(In Progress)</li>
-    <li></li>
-    <li></li>
+<p>Automated testing showed me that I forgot to add webhook files and email templates and I changed my form validation on the phone number form field to be more user friendly by changing it to a charfield to take advantage of the max_value validator then I used RegexValidator to make sure the user inputs numbers.</p>
+
 <h2>Bugs & Fixes</h2>
 <ul>
    <li>The screen width on mobiles wasn't showing 100% so the nav bar and content was off the screen and you had to scroll across to see it. - fix - with setting up 100vw in body and html inside base.css.</li>
    <li>The monkeychimp modal for mobile was covered by the nav bar so users couldnt see it properly or exit it easily. - fix - reduced z-index of nav bar to 50 so it was below monkeychimp modal z-index.</li>
-   <li></li>
 </ul>
 
 <h2>Known Bugs</h2>
@@ -216,6 +213,7 @@ I used Coverage to Identify tests needed.
 <h2>Sources/Credits</h2>
 <hr>
 <ul>
+    <li>My Mentor for her feedback</li>
     <li>Gathered information and troubleshooting from <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stackoverflow</li>
     <li>Code Institute's Boutique_ado walkthrough provided a very clear idea on how to create an E-commerce Website in dJango.<a href="https://github.com/Jca-Dev/Love_sandwiches" target="_blank" rel="noopener">GitHub Link</a></li>
     <li>background image from <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a></li>
