@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -75,6 +77,22 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            # Send Email
+            email = order_form.cleaned_data['email']
+            content = {
+                    'order': order
+                }
+            subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.html')
+            body = render_to_string('checkout/confirmation_emails/confirmation_email_body.html', content)
+
+            send_mail(
+                subject,
+                body,
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+                html_message=body
+            )
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
