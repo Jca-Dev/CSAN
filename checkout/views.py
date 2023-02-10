@@ -82,7 +82,7 @@ def checkout(request):
             content = {
                     'order': order
                 }
-            subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.html')
+            subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.html', content)
             body = render_to_string('checkout/confirmation_emails/confirmation_email_body.html', content)
 
             send_mail(
