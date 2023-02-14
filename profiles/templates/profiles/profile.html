@@ -16,13 +16,14 @@
                 <form class="mt-5 p-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-dark text-light rounded text-uppercase mb-5">Update Information</button>
+                    <button class="btn btn-dark pp-btn end-buttons text-light rounded text-uppercase mb-5">Update Information</button>
                 </form>
             </div>
-        
-            <div class="col-12 col-lg-6 shadow">
+
+            <div class="col-12 col-lg-6 pt-5 shadow">
                 <h3 class="text-center">Order History</h3>
                 <div class="order-history table-responsive">
+                    {% if order %}
                     <table class="table table-sm mb-5">
                         <thead>
                             <tr>
@@ -56,6 +57,14 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    {% else %}
+                        <p class="lead text-center pt-5 mb-5">You havent made any orders yet.</p>
+                        <div class="d-flex flex-column mb-2">
+                            <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
     
@@ -63,47 +72,60 @@
                     <h3 class="text-center mb-5">Wishlist</h3>
                 <div class="table-responsive">
                     {% if wishlist %}
-                        <table class="table table-sm mb-5">
-                            {% for product in wishlist %}
-                                <tr>
-                                    <td class="p-3 pe-0 w-25">
-                                        {% if product.image %}
-                                            <img class="img-fluid rounded cart-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                        {% else %}
-                                            <img class="img-fluid rounded cart-img" src="{{ MEDIA_URL }}/media/noimage.png" alt="{{ product.name }}">
-                                        {% endif %}
-                                    </td>
-                                    <td class="ps-5">
-                                        <p class="">{{ product.name }}</p>
-                                        <p class="">${{ product.price }}</p>
-                                        <p class="half-content">{{ product.description|truncatechars:100 }}<a href="javascript:void();"
-                                            class="show">read more</a>
-                                        </p>
-                                        <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
-                                                class="hide">read less</a>
-                                        </p>
-                                        <form class="form-css d-inline-flex align-items-center w-50" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                            {% csrf_token %}
-                                            {{ ProductForm|crispy }}
-                                            <input type="submit" class="btn-sm btn-dark rounded text-light mt-2" id="submit-btn" type="submit" value="Add to Cart">
-                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <a class="remove-cart-item text-danger ms-3 mt-2" href="{% url 'add_to_wishlist' product.id %}">
-                                            <small>Remove</small>
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
+                    <table class="table table-sm mb-5">
+                        {% for product in wishlist %}
+                            <tr>
+                                <td class="p-3 pe-0 w-25">
+                                    {% if product.image %}
+                                        <img class="img-fluid rounded cart-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img class="img-fluid rounded cart-img" src="{{ MEDIA_URL }}/media/noimage.png" alt="{{ product.name }}">
+                                    {% endif %}
+                                </td>
+                                <td class="ps-5">
+                                    <p class="">{{ product.name }}</p>
+                                    <p class="">${{ product.price }}</p>
+                                    <p class="half-content">{{ product.description|truncatechars:100 }}<a href="javascript:void();"
+                                        class="show">read more</a>
+                                    </p>
+                                    <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
+                                            class="hide">read less</a>
+                                    </p>
+                                    <form class="form-css d-inline-flex align-items-center w-50" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        {{ ProductForm|crispy }}
+                                        <input type="submit" class="btn-sm btn-dark rounded text-light mt-2" id="submit-btn" type="submit" value="Add to Cart">
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </form>
+                                </td>
+                                <td>
+                                    <a class="remove-cart-item text-danger ms-3 mt-2" href="{% url 'add_to_wishlist' product.id %}">
+                                        <small>Remove</small>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                
                     {% else %}
                         <p class="lead text-center pt-5 mb-5">Your wishlist is empty.</p>
-                        <a href="{% url 'home' %}" class="btn btn-dark text-light rounded end-buttons">
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
+                        <div class="d-flex flex-column mb-2">
+                            <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                        </div>
                     {% endif %}
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 pt-5 shadow">
+                <h3 class="text-center">Submit Testimonial</h3>
+                <form class="t-form" action="." method="POST">
+                    {% csrf_token %}
+                    {{ tform }}
+                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase m-2 end-buttons" id="submit-btn" type="submit" value="Submit Testimonial">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
             </div>
         </div>
     </div>

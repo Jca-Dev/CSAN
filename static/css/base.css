@@ -74,6 +74,18 @@ a:visited {
     text-align: center;
 }
 
+.pp-btn {
+    width: fit-content;
+    align-self: center;
+}
+
+.t-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
 /* 404 page css ------------------------------------------------------------ */
 .bg-404 {
     background: #ececec87;
@@ -97,6 +109,11 @@ a:visited {
 
 .h-btn:hover {
     box-shadow: 0rem 0rem 5px!important;
+}
+
+.testimonial {
+    width: fit-content;
+    font-size: 2.3rem;
 }
 
 /* products css ------------------------------------------------------------ */
@@ -407,5 +424,9 @@ hr {
 
     .search-mob {
         margin-left: 0!important;
+    }
+
+    #id_head {
+        width: -webkit-fill-available;
     }
 }

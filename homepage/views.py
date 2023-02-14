@@ -1,8 +1,18 @@
 from django.shortcuts import render
+from .forms import TestimonialForm
+from .models import Testimonial
+from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'homepage/index.html')
+    tform = TestimonialForm
+    testimonials = Testimonial.objects.all()
+
+    data = {
+        'tform': tform,
+        'testimonials': testimonials
+    }
+    return render(request, 'homepage/index.html', data)
 
 
 def returns(request):
