@@ -6,6 +6,29 @@ Your order information:<br>
 Order Number: {{ order.order_number }}<br>
 Order Date: {{ order.date }}<br>
 <br>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Options</th>
+            <th>Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.lineitems.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>Color: {{ item.color }} <br>
+                Opacity: {{ item.opacity }} <br>
+                Height: {{ item.height }} <br>
+                Width: {{ item.width }} <br>
+                Diameter: {{ item.diameter }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
 Order Total: ${{ order.order_total }}<br>
 Delivery: ${{ order.delivery_cost }}<br>
 Grand Total: ${{ order.grand_total }}<br>

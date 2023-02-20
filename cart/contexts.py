@@ -11,15 +11,20 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     for item_id, item_data, in cart.items():
-        if isinstance(item_data, int):
-            product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
-            product_count += item_data
-            cart_items.append({
-                'item_id': item_id,
-                'quantity': item_data,
-                'product': product,
-            })
+        product = get_object_or_404(Product, pk=item_id)
+        quantity = item_data['options']['quantity']
+        total += quantity * product.price
+        product_count += quantity
+        cart_items.append({
+            'item_id': item_id,
+            'product': product,
+            'quantity': quantity,
+            'color': item_data['options']['color'],
+            'opacity': item_data['options']['opacity'],
+            'height': item_data['options']['height'],
+            'width': item_data['options']['width'],
+            'diameter': item_data['options']['diameter'],
+        })
 
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     grand_total = delivery + total

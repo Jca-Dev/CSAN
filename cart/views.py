@@ -10,14 +10,24 @@ def view_cart(request):
 def add_to_cart(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    color = str(request.POST.get('color'))
+    opacity = str(request.POST.get('opacity'))
+    height = int(request.POST.get('height'))
+    width = int(request.POST.get('width'))
+    diameter = str(request.POST.get('diameter'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if item_id in list(cart.keys()):
-        cart[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        messages.error(request, f'Sorry, at this time you can only have 1 product variation per order. We are working on this and it will be improved in an upcomming update.')
     else:
-        cart[item_id] = quantity
+        cart[item_id] = {'options': {'quantity': quantity,
+                                     'color': color,
+                                     'opacity': opacity,
+                                     'height': height,
+                                     'width': width,
+                                     'diameter': diameter,
+                                     }}
         messages.success(request, f'Added {product.name} to your cart')
 
     request.session['cart'] = cart
@@ -30,8 +40,8 @@ def adjust_cart(request, item_id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        cart[item_id]['options']['quantity'] = quantity
+        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]["options"]["quantity"]}')
     else:
         cart.pop(item_id)
         messages.success(request, f'Removed {product.name} from your cart')

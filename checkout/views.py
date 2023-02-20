@@ -65,7 +65,12 @@ def checkout(request):
                     order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            quantity=item_data,
+                            quantity=item_data['options']['quantity'],
+                            color=item_data['options']['color'],
+                            opacity=item_data['options']['opacity'],
+                            height=item_data['options']['height'],
+                            width=item_data['options']['width'],
+                            diameter=item_data['options']['diameter'],
                         )
                     order_line_item.save()
                 except Product.DoesNotExist:

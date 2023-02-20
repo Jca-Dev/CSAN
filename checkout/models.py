@@ -52,6 +52,11 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    color = models.CharField(max_length=10, null=False, blank=False, default=0)
+    opacity = models.CharField(max_length=10, null=False, blank=False, default=0)
+    height = models.DecimalField(decimal_places=1, max_digits=5, null=False, blank=False, default=0)
+    width = models.DecimalField(decimal_places=1, max_digits=5, null=False, blank=False, default=0)
+    diameter = models.CharField(max_length=10, null=False, blank=False, default=0) 
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
