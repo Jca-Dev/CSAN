@@ -248,6 +248,7 @@ I used Coverage to Identify tests needed.
 <ul>
    <li>The screen width on mobiles wasn't showing 100% so the nav bar and content was off the screen and you had to scroll across to see it. - fix - with setting up 100vw in body and html inside base.css.</li>
    <li>The monkeychimp modal for mobile was covered by the nav bar so users couldnt see it properly or exit it easily. - fix - reduced z-index of nav bar to 50 so it was below monkeychimp modal z-index.</li>
+   <li>The testimonials were displaying too close together. - fix - add margin around each testimonial to keep them seperate.</li>
 </ul>
 
 <h2>Known Bugs</h2>

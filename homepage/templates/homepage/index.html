@@ -30,15 +30,15 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        {% for testimonial in testimonials.all %}
-            <div class="container testimonial shadow px-1 mb-2 bg-white rounded">
-                <span class="fw-normal fst-italic me-1">"{{ testimonial.head }}"</span>
-                <hr>
-                <p class="fw-normal fs-4">"{{ testimonial.content }}"</p>
-                <p class="fw-normal me-1 fs-5">{{ testimonial.created_by }} Rated: {{ testimonial.rating }}</p>
-            </div>
-        {% endfor %}
+    <div class="row"></div>
+    {% for testimonial in testimonials.all %}
+        <div class="container testimonial shadow px-1 m-5 bg-white rounded">
+            <span class="fw-normal fst-italic me-1">"{{ testimonial.head }}"</span>
+            <hr>
+            <p class="fw-normal fs-4">"{{ testimonial.content }}"</p>
+            <p class="fw-normal me-1 fs-5">{{ testimonial.created_by }} Rated: {{ testimonial.rating }}</p>
+        </div>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}
