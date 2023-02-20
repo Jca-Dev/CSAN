@@ -9,7 +9,10 @@
 <h1>Planning</h1>
 <hr>
 <h2>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/4">Here</a></h2>
+
+<h2>Desktop</h2>
 <p>I used balsamiq wireframes to plan the look and layout of the project. however the final result is not exactly the same as the wireframes.</p>
+
 
 ![Landing Page Preview](media/screenshots/Landing.png)
 <hr>
@@ -23,7 +26,7 @@
 ![Product Page Preview](media/screenshots/roller.png)
 <hr>
 
-![Product Page Preview](media/screenshots/product-des.png)
+![Product Description Preview](media/screenshots/product-des.png)
 <hr>
 
 ![Cart Page Preview](media/screenshots/cart.png)
@@ -41,8 +44,38 @@
 ![Logout Page Preview](media/screenshots/logout.png)
 <hr>
 
-![Account Page Preview](media/screenshots/account.png)
+![Profile Page Preview](media/screenshots/account.png)
 <hr>
+
+<h2>Mobile</h2>
+<p>For the mobile design I used figma wireframes because my balsamiq trial had ended.
+I also used blocks for forms and informaion to use the layout and reference the block info from the desktop view.</p>
+
+![Nav Bar Mobile Preview](media/screenshots/nav-mob.png)
+Above is the nav bar expanded and closed for mobile view.
+<hr>
+
+![Landing Page Mobile Preview](media/screenshots/home-mob.png)
+<hr>
+
+![Products Mobile Preview](media/screenshots/product-mob.png)
+<hr>
+
+![Product-description Mobile Preview](media/screenshots/product-des-mob.png)
+<hr>
+
+![Cart Mobile Preview](media/screenshots/cart-mob.png)
+<hr>
+
+![Checkout Mobile Preview](media/screenshots/checkout-mob.png)
+<hr>
+
+![Checkout Success Mobile Preview](media/screenshots/Checkout-s-mob.png)
+<hr>
+
+![Profile Page Mobile Preview](media/screenshots/profile-mob.png)
+<hr>
+
 <h1>Design And Features</h1>
 <ul>
     <li>Customers can create an account and have their own profile to store their address details for checkout purposes, leave product reviews and view their order history.</li>
@@ -122,17 +155,30 @@ There is also a cookie consent popup that also links the privacy policy and cont
     <li>Pytest - Automated testing.</li>
     <li>Coverage - Automated testing.</li>
     <li>Factory-boy - Automated testing.</li>
+    <li>Balsamiq - wireframes for design.</li>
+    <li>Figma - Wireframes for design.</li>
 </ul>
 <hr>
 <h1>Deployment</h1>
 <h2>Heroku</h2>
 The project was deployed to Heroku via GitHub by:
 <ol>
-    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the variables for my database and AWS with all enviroment keys ect.</li>
+    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the required variables.</li>
+    <ul>
+        <span><strong>Variables required:</strong></span>
+        <li>AWS_ACCESS_KEY_ID - links AWS to heroku.</li>
+        <li>AWS_SECRET_ACCESS_KEY - links AWS to heroku.</li>
+        <li>DATABASE_URL - links database to heroku.</li>
+        <li>SECRET_KEY - authorises heroku to use the app.</li>
+        <li>USE_AWS - tells heroku to use AWS to serve static files.</li>
+        <li>Procfile - you will need one to declare the proccess type. e.g. web: gunicorn 'appname'.wsgi:application</li>
+    </ul>
     <li>Going to deploy, selecting deployment method as GitHub and typing in the GitHub repository name.</li>
     <li>Finally selecting deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
 </ol>
+!Important make sure to set Debug in the settings.py file to False. <br>
 The page is now published and the link is in the settings section under Domains.
+
 
 <br>
 
