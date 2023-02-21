@@ -1,11 +1,22 @@
 <h1>CSAN E-Commerce Webiste</h1>
 <hr>
-    <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell new adjustable technology blinds directly to consumers instead of paying someone else so sell them.<br> 
+    <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell blinds directly to consumers instead of paying third party so sell them.<br> 
     <a href="https://csan.herokuapp.com/">Click Here</a> to go to the live website.
 </p>
 <p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
 <hr>
 
+<h1>User Experience (UX)</h1>
+<h2>Goals</h2>
+<ul>
+    <li>Users can easily find and purchase blinds online.</li>
+    <li>Show a clean, clear, accessible and easily navigable website for the user.</li>
+    <li>Users return to show/recommend service to others.</li>
+    <li>Frequent users connect via the social media platforms for information and updates.</li>
+    <li>Users give positive feedback in the form of reviews and testimonials.</li>
+</ul>
+
+<hr>
 <h1>Planning</h1>
 <hr>
 <h2>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/4">Here</a></h2>
@@ -78,10 +89,11 @@ Above is the nav bar expanded and closed for mobile view.
 
 <h1>Design And Features</h1>
 <ul>
-    <li>Customers can create an account and have their own profile to store their address details for checkout purposes, leave product reviews and view their order history.</li>
+    <li>Customers can create an account and have their own profile to store their address details for checkout purposes, leave product reviews, testimonials and view their order history.</li>
     <li>Customers can log in with google Oauth for a fast user friendly registration experience.</li>
     <li>Staff accounts have CRUD functionality over products on the web page and can also log into the dJango admin pannel.</li>
     <li>There are links on the main page to relative information on blind cleaning and types of blinds.</li>
+    <li>There are links on the product detail page to relative information on information required to order a blind.</li>
 </ul>
 <h2>Imagery</h2>
 <ul>
@@ -91,7 +103,12 @@ Above is the nav bar expanded and closed for mobile view.
 <ul>
     <li>The color sheme is green, white and black. Green and white are the brand colors whereas black is the contrasting color for user interaction buttons to be easily seen.</li>
 </ul>
-
+<h2>Security</h2>
+<ul>
+    <li>Only staff users have access to CRUD functionality of products via links and URLs.</li>
+    <li>Variables such as security keys are stored in the enviroment and not in the code.</li>
+</ul>
+<hr>
 <h2>Font styles</h2>
 <ul>
     <li>Raleway - is used for headings and the logo because it gives a clear crisp design.</li>
@@ -105,7 +122,9 @@ The user will know where they are on the site as each page has a header displayi
 
 <h2>Future features</h2>
 <ul>
-    <li>I would like to implement more of the items shown in the product detail page from the wireframes. having a color selector for each blind and multiple pictures of the products.</li>
+    <li>Have duplicate products with different options in the same order.</li>
+    <li>Impiment more options such as a selection between motorized and chain controls.</li>
+    <li>Sales page one the products list grows.</li>
 </ul>
 <hr>
 
@@ -199,9 +218,38 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <hr>
 <h1>Testing</h1>
 <h2>Manual test</h2>
+<h3>Form testing</h3>
 <ul>
-    <li>Given invalid input such as letters and incorrect amount of data, both resulting in a error message as expected.</li>
-    <li>Tried submitting blank forms resulting in error messages as expected.</li>
+    <li>
+        <strong>Input fields.</strong><br>- test - input incorrect data such as a char in an int field or empty required field.<br>- expected result - the  form validation will throw an error and display "There was an error with your form. Please double check your information."<br>- result - error displayed "There was an error with your form. Please double check your information."
+    </li>
+    <li>
+        <strong>Duplicate form submission for single submision per user.</strong><br>- test - submit a second form after one is bound   to the user.<br>- expected result - an error will display saying "You have already given your testimonial for our service.   Thank you!".<br>- result - error will display saying "You have already given your testimonial for our service. Thank you!".
+    </li>
+</ul>
+<h3>Login & Registration testing</h3>
+<ul>
+    <li>
+        <strong>Duplicate Account.</strong><br>- test - try registering with a username already in use.<br>- expected result - user wont be able to register and the page will refresh with an error message stating the username is taken.<br>- result - user cant register and the page refreshed however no error message is displayed.
+    </li>
+    <li>
+        <strong>Invalid Credentials.</strong><br>- test - try logging in with a invalid credentials e.g. wrong password or non existant username.<br>- expected result - user wont be able to login and the page will refresh with an error message stating the password is wrong or the username doesn't exist.<br>- result - user cant login and the page refreshed however no error message is displayed.
+    </li>
+</ul>
+<h3>Security testing</h3>
+<ul>
+    <li>
+        <strong>CRUD for products</strong><br>- test - open product page with anonymous (no logged in) and non staff user account and check to see if they can see the links.<br>- expected result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.<br>- result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.
+    </li>
+    <li>
+        <strong>CRUD for products</strong><br>- test - type in the url to edit or delete a product with anonymous (no logged in) and non staff user account. e.g. https://csan.herokuapp.com/products/delete/4/<br>- expected result - non staff users including anonymous get redirected to the login page.<br>- result - non staff users including anonymous get redirected to the login page.
+    </li>
+    <li>
+        <strong>Login to admin site</strong><br>- test - try to log into the admin site as a non staff user.<br>- expected result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."<br>- result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."
+    </li>
+    <li>
+        <strong></strong><br>- test - <br>- expected result - <br>- result -
+    </li>
 </ul>
 <h2>Browsers</h2>
 <ul>
@@ -249,12 +297,15 @@ I used Coverage to Identify tests needed.
    <li>The screen width on mobiles wasn't showing 100% so the nav bar and content was off the screen and you had to scroll across to see it. - fix - with setting up 100vw in body and html inside base.css.</li>
    <li>The monkeychimp modal for mobile was covered by the nav bar so users couldnt see it properly or exit it easily. - fix - reduced z-index of nav bar to 50 so it was below monkeychimp modal z-index.</li>
    <li>The testimonials were displaying too close together. - fix - add margin around each testimonial to keep them seperate.</li>
+   <li>When an order is in the wishlist section of the profile page the options and picture are crushed and dificult to see. - fix - simplified the wishlist display by removing the form and description replacing add to cart with go to product.</li>
 </ul>
 
 <h2>Known Bugs</h2>
 <ul>
     <li>The Error: Uncaught TypeError: Cannot read properties of null (reading 'appendChild') this is present in a third party script from mailchimp that I dont have access to.</li>
     <li>The checkout form validation doesn't show up on the fields apart from the stripe payment field. but it does validate.</li>
+    <li>A user cannot add a duplicate product with different options to the cart list as its a dictionary.</li>
+    <li>Allauth form validation doesn't display all errors required.</li>
 </ul>
 <hr>
 <h2>Sources/Credits</h2>

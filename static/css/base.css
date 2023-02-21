@@ -86,6 +86,14 @@ a:visited {
     align-items: center;
 }
 
+.ptab {
+    display: inline-flex;
+}
+
+.pimg{
+    padding-bottom: 3rem;
+}
+
 /* 404 page css ------------------------------------------------------------ */
 .bg-404 {
     background: #ececec87;
@@ -127,6 +135,12 @@ a:visited {
 
 #id_rating {
     margin-left: 10px;
+}
+
+.coming_soon {
+    width: max-content;
+    margin-top: 12rem!important;
+    margin-left: 8rem;
 }
 
 /* product detail css ------------------------------------------------------------ */
@@ -402,6 +416,12 @@ hr {
 
 }
 
+@media (max-width: 1100px){
+    .coming_soon{
+        margin: 0!important;
+    }
+}
+
 @media (max-width: 991px) {
     .nav-item {
         transition: all .2s ease-in-out;
@@ -469,5 +489,13 @@ hr {
 
     #id_head {
         width: -webkit-fill-available;
+    }
+
+    .ptab {
+        display: block;
+    }
+
+    .pimg{
+        padding-bottom: 0;
     }
 }

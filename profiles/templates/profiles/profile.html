@@ -2,168 +2,148 @@
 {% load static %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="fw-bold mt-5">My Profile</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6 shadow-sm">
-                <h3 class="text-center">Default Delivery Information</h3>
-                <form class="mt-5 p-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-dark pp-btn end-buttons text-light rounded text-uppercase mb-5">Update Information</button>
-                </form>
-            </div>
-
-            <div class="col-12 col-lg-6 pt-5 shadow">
-                <h3 class="text-center">Order History</h3>
-                <div class="order-history table-responsive">
-                    {% if order %}
-                    <table class="table table-sm mb-5">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>${{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                        <p class="lead text-center pt-5 mb-5">You havent made any orders yet.</p>
-                        <div class="d-flex flex-column mb-2">
-                            <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-    
-            <div class="col-12 col-lg-6 pt-5 shadow">
-                    <h3 class="text-center mb-5">Wishlist</h3>
-                <div class="table-responsive">
-                    {% if wishlist %}
-                    <table class="table table-sm mb-5">
-                        {% for product in wishlist %}
-                            <tr>
-                                <td class="p-3 pe-0 w-25">
-                                    {% if product.image %}
-                                        <img class="img-fluid rounded cart-img" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                    {% else %}
-                                        <img class="img-fluid rounded cart-img" src="{{ MEDIA_URL }}/media/noimage.png" alt="{{ product.name }}">
-                                    {% endif %}
-                                </td>
-                                <td class="ps-5">
-                                    <p class="">{{ product.name }}</p>
-                                    <p class="">${{ product.price }}</p>
-                                    <p class="half-content">{{ product.description|truncatechars:100 }}<a href="javascript:void();"
-                                        class="show">read more</a>
-                                    </p>
-                                    <p class="full-content" style="display: none;">{{ product.description }}<a href="javascript:void();"
-                                            class="hide">read less</a>
-                                    </p>
-                                    <form class="form-css d-inline-flex align-items-center w-50" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                        {% csrf_token %}
-                                        {{ ProductForm|crispy }}
-                                        <input type="submit" class="btn-sm btn-dark rounded text-light mt-2" id="submit-btn" type="submit" value="Add to Cart">
-                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    </form>
-                                </td>
-                                <td>
-                                    <a class="remove-cart-item text-danger ms-3 mt-2" href="{% url 'add_to_wishlist' product.id %}">
-                                        <small>Remove</small>
-                                    </a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                
-                    {% else %}
-                        <p class="lead text-center pt-5 mb-5">Your wishlist is empty.</p>
-                        <div class="d-flex flex-column mb-2">
-                            <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6 pt-5 shadow">
-                <h3 class="text-center">Submit Testimonial</h3>
-                <form class="t-form" action="." method="POST">
-                    {% csrf_token %}
-                    {{ tform }}
-                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase m-2 end-buttons" id="submit-btn" type="submit" value="Submit Testimonial">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-            </div>
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="fw-bold mt-5">My Profile</h2>
+            <hr>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 shadow-sm">
+            <h3 class="text-center">Default Delivery Information</h3>
+            <form class="mt-5 p-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-dark pp-btn end-buttons text-light rounded text-uppercase mb-5">Update
+                    Information</button>
+            </form>
+        </div>
+
+        <div class="col-12 col-lg-6 pt-5 shadow">
+            <h3 class="text-center">Order History</h3>
+            <div class="order-history table-responsive">
+                {% if orders %}
+                <table class="table table-sm mb-5">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.product.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>${{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="lead text-center pt-5 mb-5">You havent made any orders yet.</p>
+                <div class="d-flex flex-column mb-2">
+                    <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 pt-5 shadow">
+            <h3 class="text-center mb-5">Wishlist</h3>
+            <div class="table-responsive ptab w-100">
+                {% if wishlist %}
+                <table class="table table-sm mb-5">
+                    {% for product in wishlist %}
+                    <tr>
+                        <td class="ps-5">
+                            {% if product.image %}
+                            <img class="img-fluid rounded cart-img pimg pe-3" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded cart-img pe-3" src="{{ MEDIA_URL }}/media/noimage.png"
+                                alt="{{ product.name }}">
+                            {% endif %}
+                            <p class="">{{ product.name }}</p>
+                            <p class="">${{ product.price }}</p>
+                            <P><a class="btn btn-dark rounded text-light text-uppercase end-buttons"
+                                    href="{% url 'product_detail' product.id %}">Go to product</a></P>
+                        </td>
+                        <td>
+                            <a class="remove-cart-item text-danger ms-3 mt-2"
+                                href="{% url 'add_to_wishlist' product.id %}">
+                                <small>Remove</small>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                {% else %}
+                <p class="lead text-center pt-5 mb-5">Your wishlist is empty.</p>
+                <div class="d-flex flex-column mb-2">
+                    <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 pt-5 shadow">
+            <h3 class="text-center">Submit Testimonial</h3>
+            <form class="t-form" action="." method="POST">
+                {% csrf_token %}
+                {{ tform }}
+                <input type="submit" class="btn btn-dark rounded text-light text-uppercase m-2 end-buttons"
+                    id="submit-btn" type="submit" value="Submit Testimonial">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    <script type="text/javascript">
-        $('.btt-link').click(function(e) {
-            window.scrollTo(0,0)
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".show").click(function () {
-                $(".half-content").hide(),
-                    $(".full-content").show();
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    });
+</script>
+<script type="text/javascript">
+    $('.remove-wishlist-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/wishlist/remove/${itemId}/`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
             });
-        });
-        $(document).ready(function () {
-            $(".hide").click(function () {
-                $(".full-content").hide(),
-                    $(".half-content").show();
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $('.remove-wishlist-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('remove_')[1];
-            var url = `/wishlist/remove/${itemId}/`;
-            var data = {'csrfmiddlewaretoken': csrfToken};
-    
-            $.post(url, data)
-             .done(function() {
-                 location.reload();
-             });
-        });
-    </script>
+    });
+</script>
 {% endblock %}
