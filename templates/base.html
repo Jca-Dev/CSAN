@@ -46,6 +46,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983313c30672f50b5dba9d564/158d5d9d9180ec515036eb180.js");</script>
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="/static/js/base.js"></script>
   <!--Cookies-->
   <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.7/src/glowCookies.min.js"></script>
   {% endblock %}
@@ -81,7 +82,7 @@
         </ul>
         <form class="d-flex search-mob ms-5" method="GET" action="{% url 'products' %}">
           <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light border rounded border-dark grow me-4" type="submit">
+          <button class="btn btn-light border rounded border-dark grow me-4" aria-label="search using the search bar" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </form>
@@ -201,28 +202,8 @@
         </div>
       </div>
     </div>
-
   </footer>
-
-  {% block postloadjs %}
-  <script>
-    glowCookies.start('en', { 
-        style: 1,
-        analytics: 'G-FH87DE17XF', 
-        facebookPixel: '990955817632355',
-        policyLink: 'https://www.privacypolicygenerator.info/live.php?token=cXfHIKF1soN81fZF1OQKU1J8PuaA3C4K'
-    });
-  </script>
-  <script>
-    var toastElList = [].slice
-      .call(document.querySelectorAll('.toast'));
-    var toastList = toastElList.map(function (toastEl) {
-      return new bootstrap.Toast(toastEl, {delay: 2000});
-    });
-    toastList.forEach(toast => toast.show());
-  </script>
-  {% endblock %}
-
 </body>
-
+{% block postloadjs %}
+{% endblock %}
 </html>
