@@ -179,21 +179,56 @@ There is also a cookie consent popup that also links the privacy policy and cont
 </ul>
 <hr>
 <h1>Deployment</h1>
+<h2><strong>Requirements:</strong></h2>
+<ul>   
+    <li>AWS_ACCESS_KEY_ID - links AWS to heroku.</li>
+    <li>AWS_SECRET_ACCESS_KEY - links AWS to heroku.</li>
+    <li>DATABASE_URL - links database to heroku.</li>
+    <li>SECRET_KEY - authorises heroku to use the app.</li>
+    <li>USE_AWS - tells heroku to use AWS to serve static files.</li>
+    <li>Procfile - declare the proccess type. e.g. web: gunicorn 'appname'.wsgi:application</li>
+    <li>
+        Requirments.txt - this file lists all the dependencies for the project. this project requires: 
+        <br>asgiref==3.5.2
+        <br>boto3==1.26.48
+        <br>botocore==1.29.48
+        <br>coverage==7.0.5
+        <br>dj-database-url==0.5.0
+        <br>Django==3.2
+        <br>django-allauth==0.41.0
+        <br>django-countries==7.2.1
+        <br>django-crispy-forms==1.14.0
+        <br>django-storages==1.13.2
+        <br>exceptiongroup==1.1.0
+        <br>factory-boy==3.2.1
+        <br>Faker==16.5.0
+        <br>gunicorn==20.1.0
+        <br>inflection==0.5.1
+        <br>iniconfig==2.0.0
+        <br>jmespath==1.0.1
+        <br>oauthlib==3.2.2
+        <br>Pillow==9.3.0
+        <br>pluggy==1.0.0
+        <br>psycopg2==2.9.5
+        <br>pytest==7.2.1
+        <br>pytest-django==4.5.2
+        <br>pytest-factoryboy==2.5.1
+        <br>python3-openid==3.2.0
+        <br>pytz==2022.6
+        <br>requests-oauthlib==1.3.1
+        <br>s3transfer==0.6.0
+        <br>sqlparse==0.4.3
+        <br>stripe==5.0.0
+    </li>
+</ul>
+
 <h2>Heroku</h2>
 The project was deployed to Heroku via GitHub by:
 <ol>
-    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the required variables.</li>
-    <ul>
-        <span><strong>Variables required:</strong></span>
-        <li>AWS_ACCESS_KEY_ID - links AWS to heroku.</li>
-        <li>AWS_SECRET_ACCESS_KEY - links AWS to heroku.</li>
-        <li>DATABASE_URL - links database to heroku.</li>
-        <li>SECRET_KEY - authorises heroku to use the app.</li>
-        <li>USE_AWS - tells heroku to use AWS to serve static files.</li>
-        <li>Procfile - you will need one to declare the proccess type. e.g. web: gunicorn 'appname'.wsgi:application</li>
-    </ul>
-    <li>Going to deploy, selecting deployment method as GitHub and typing in the GitHub repository name.</li>
-    <li>Finally selecting deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
+    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the required variables from above</li>
+    <li>Linked the database (ElephantSQL), Static file host (AWS) and Stripe (Payments) through the variables in herouku by generating the keys (public and secret) from my account on the sites and pasting them linked with the variable names in settings.py EXACTLY as is, any variation in the names cause heroku to search for non-existant variables.</li>
+    <li>Go to deploy, select deployment method as GitHub and typing in the GitHub repository name into the required field and selecting this repository name.</li>
+    <li>Finally select deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
 </ol>
 !Important make sure to set Debug in the settings.py file to False. <br>
 The page is now published and the link is in the settings section under Domains.
@@ -203,14 +238,14 @@ The page is now published and the link is in the settings section under Domains.
 
 <h2>Making a Local Clone</h2>
 <ol>
-<li>Log in to GitHub and locate the [GitHub Repository](https://github.com/)</li>
-<li>Under the repository name, click "Clone or download".</li>
-<li>To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.</li>
-<li>Open Git Bash</li>
-<li>Change the current working directory to the location where you want the cloned directory to be made.</li>
-<li>Type `git clone`, and then paste the URL you copied in Step 3.</li>
-<li>Press Enter. Your local clone will be created.</li>
-<li>Create a new Heroku app and follow the steps in Heroku deployment above.</li>
+    <li>Log in to GitHub and locate the [GitHub Repository](https://github.com/)</li>
+    <li>Under the repository name, click "Clone or download".</li>
+    <li>To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.</li>
+    <li>Open Git Bash</li>
+    <li>Change the current working directory to the location where you want the cloned directory to be made.</li>
+    <li>Type `git clone`, and then paste the URL you copied in Step 3.</li>
+    <li>Press Enter. Your local clone will be created.</li>
+    <li>Create a new Heroku app and follow the steps in Heroku deployment above.</li>
 </ol>
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for retrieve pictures and more detailed explanations of the above process.
@@ -221,13 +256,13 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <h3>Form testing</h3>
 <ul>
     <li>
-        <strong>Input fields.</strong><br>- test - input incorrect data such as a char in an int field or empty required field.<br>- expected result - the  form validation will throw an error and display "There was an error with your form. Please double check your information."<br>- result - error displayed "There was an error with your form. Please double check your information."
+        <strong>Input fields.</strong><br>- test - input incorrect data such as a char in an int field or empty required field.<br>- expected result - the form validation will throw an error and display "There was an error with your form. Please double check your information."<br>- result - error displayed "There was an error with your form. Please double check your information."
     </li>
     <li>
-        <strong>Duplicate form submission for single submision per user.</strong><br>- test - submit a second form after one is bound   to the user.<br>- expected result - an error will display saying "You have already given your testimonial for our service.   Thank you!".<br>- result - error will display saying "You have already given your testimonial for our service. Thank you!".
+        <strong>Duplicate form submission for single submision per user.</strong><br>- test - submit a second form after one is bound to the user.<br>- expected result - an error will display saying "You have already given your testimonial for our service. Thank you!".<br>- result - error will display saying "You have already given your testimonial for our service. Thank you!".
     </li>
 </ul>
-<h3>Login & Registration testing</h3>
+<h3>Login & Registration Testing</h3>
 <ul>
     <li>
         <strong>Duplicate Account.</strong><br>- test - try registering with a username already in use.<br>- expected result - user wont be able to register and the page will refresh with an error message stating the username is taken.<br>- result - user cant register and the page refreshed however no error message is displayed.
@@ -236,7 +271,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
         <strong>Invalid Credentials.</strong><br>- test - try logging in with a invalid credentials e.g. wrong password or non existant username.<br>- expected result - user wont be able to login and the page will refresh with an error message stating the password is wrong or the username doesn't exist.<br>- result - user cant login and the page refreshed however no error message is displayed.
     </li>
 </ul>
-<h3>Security testing</h3>
+<h3>Security Testing</h3>
 <ul>
     <li>
         <strong>CRUD for products</strong><br>- test - open product page with anonymous (no logged in) and non staff user account and check to see if they can see the links.<br>- expected result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.<br>- result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.
@@ -313,6 +348,6 @@ I used Coverage to Identify tests needed.
 <ul>
     <li>My Mentor for her feedback</li>
     <li>Gathered information and troubleshooting from <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stackoverflow</li>
-    <li>Code Institute's Boutique_ado walkthrough provided a very clear idea on how to create an E-commerce Website in dJango.<a href="https://github.com/Jca-Dev/Love_sandwiches" target="_blank" rel="noopener">GitHub Link</a></li>
+    <li>Code Institute's Boutique_ado walkthrough provided a very clear idea on how to create an E-commerce Website in Django.<a href="https://github.com/Jca-Dev/Love_sandwiches" target="_blank" rel="noopener">GitHub Link</a></li>
     <li>background image from <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a></li>
     <li>Icons from <a href="https://fontawesome.com/search?o=r&m=free" target="_blank" rel="noopener">fontawesome</a></li>

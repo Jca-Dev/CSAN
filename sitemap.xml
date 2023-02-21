@@ -9,72 +9,77 @@
 
 <url>
   <loc>https://csan.herokuapp.com/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/products/?category=Cassette</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/products/?category=Horizontal</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/products/?category=Rollershade</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/accounts/login/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/cart/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/customer_service/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/returns/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://csan.herokuapp.com/products/1/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <loc>https://csan.herokuapp.com/products/14/</loc>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://csan.herokuapp.com/products/5/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <loc>https://csan.herokuapp.com/products/4/</loc>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://csan.herokuapp.com/products/2/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <loc>https://csan.herokuapp.com/products/6/</loc>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://csan.herokuapp.com/products/3/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <loc>https://csan.herokuapp.com/products/10/</loc>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://csan.herokuapp.com/products/15/</loc>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://csan.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2023-01-13T21:07:01+00:00</lastmod>
+  <lastmod>2023-02-21T19:46:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
