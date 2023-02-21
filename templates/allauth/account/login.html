@@ -18,14 +18,11 @@
     for a {{ site_name }} account and login below:{% endblocktrans %}</p>
 
   <div class="socialaccount_ballot">
-
-    <ul class="socialaccount_providers p-2 ms-2">
-      <button
-        class="g-btn bg-danger text-light fw-bold shadow border-0 rounded px-5 py-2 text-center">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</button>
-    </ul>
+      <p>
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </p>
 
     <div class="login-or pb-2">{% trans 'or' %}</div>
-
   </div>
 
   {% include "socialaccount/snippets/login_extra.html" %}
@@ -41,7 +38,7 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button class="btn-dark rounded fw-normal end-buttons"><a href="{% url 'home' %}">Home</a></button>
+    <a class="btn-dark rounded fw-normal text-light p-1 end-buttons" href="{% url 'home' %}">Home</a>
     <button class="rounded btn-dark fw-normal end-buttons" type="submit">{% trans "Login" %}</button>
     <p class="mt-2">
       <a class="button text-primary" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>

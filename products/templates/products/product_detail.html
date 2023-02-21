@@ -72,7 +72,7 @@
                 <form class="form-css" action="." method="POST">
                     {% csrf_token %}
                     {{ rform|crispy }}
-                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase mt-0 end-buttons" id="submit-btn" type="submit" value="Submit Review">
+                    <input type="submit" class="btn btn-dark rounded text-light text-uppercase mt-0 end-buttons" id="submit-btn" value="Submit Review">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
@@ -93,7 +93,7 @@
 
     {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
             $(".show").click(function () {
                 $(".half-content").hide(),
