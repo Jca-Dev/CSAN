@@ -104,11 +104,12 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
+              <li><a class="dropdown-item account-list" href="{% url 'account_logout' %}">Log Out</a></li>
+            </ul>
           </li>
-          <li><a class="dropdown-item account-list" href="{% url 'account_logout' %}">Log Out</a></li>
         </ul>
         {% else %}
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item account-list" href="{% url 'account_login' %}">Login</a></li>
           <li>
             <hr class="dropdown-divider">
@@ -202,7 +203,7 @@
       </div>
     </div>
   </footer>
-</body>
 {% block postloadjs %}
 {% endblock %}
+</body>
 </html>
