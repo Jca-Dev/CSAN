@@ -45,6 +45,7 @@ def profile(request):
                     head=head,
                     content=content,
                 )
+                messages.success(request, 'You have successfully given your testimonial for our service. Thank you!')
 
             return redirect(reverse('profile'))
 

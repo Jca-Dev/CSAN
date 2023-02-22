@@ -252,38 +252,77 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
     
 <hr>
 <h1>Testing</h1>
+<h2>User Stories</h2>
+<ul>
+    <li>
+        <strong>Add to cart</strong><br>- test - add options for the product and click add to cart.<br><br>- expected result - a success message should be generated with the item and quantity, the product and option input should show on the cart page.<br><br>- result - success message was generated with the item and quantity, the product and option input showed on the cart page.
+    </li>
+    <br>
+    <li>
+        <strong>Creating an order</strong><br>
+        - test - 
+        <ol>
+            <li>add options for the product and click add to cart.</li>
+            <li>once the item is in the cart go to the checkout page.</li>
+            <li>fill out the checkout form and payment options (card number & zip).</li>
+        </ol><br>- expected result - redirected to the checkout success page with a success message "Order successfully processed! \ Your order number is {order_number}. A confirmation \ email will be sent to {order.email}." 
+        with the order number, order details, product, quantity, options, and price should be displayed and finally an order line item should be displayed on the user profile page.<br><br>- result - redirected to the checkout success page with a success message "Order successfully processed! \ Your order number is {order_number}. A confirmation \ email will be sent to {order.email}." with the order number, order details, product, quantity, options, and price are displayed and finally an order line item was displayed on the user profile page.
+    </li>
+    <br>
+    <li>
+        <strong>receiving email after Order creation</strong><br>- test - follow 'creating and order' test.<br><br>- expected result - an email should be generated and sent to the profile email address.<br><br>- result - an email was be generated and sent to the profile email address.
+    </li>
+    <br>
+    <li>
+        <strong>Leaving a review</strong><br>- test - write a review for a product on the product detail page and submit.<br><br>- expected result - the reiew will be submitted and displayed below the form.<br><br>- result -the reiew was submitted and displayed below the form.
+    </li>
+    <br>
+    <li>
+        <strong>Creating a testimonial</strong><br>- test - after placing an order, go to the profile page and fill out the testimonial form.<br><br>- expected result - a success message should display "You have successfully given your testimonial for our service. Thank you!" and the testimonial will be added to the landing page."<br><br>- result - success message was displayed "You have successfully given your testimonial for our service. Thank you!" and the testimonial was added to the landing page.
+    </li>
+    <br>
+    <li>
+        <strong>Account creation</strong><br>- test - go to the register page and fill out the form, open the email received and click the link to and on the page loaded in your browser click confirm than login.<br><br>- expected result - the account is created with access to the profile page.<br><br>- result - the account was created with access to the profile page.
+    </li>
+</ul>
+<hr>
 <h2>Manual test</h2>
 <h3>Form testing</h3>
 <ul>
     <li>
-        <strong>Input fields.</strong><br>- test - input incorrect data such as a char in an int field or empty required field.<br>- expected result - the form validation will throw an error and display "There was an error with your form. Please double check your information."<br>- result - error displayed "There was an error with your form. Please double check your information."
+        <strong>Input fields</strong><br>- test - input incorrect data such as a char in an int field or empty required field.<br><br>- expected result - the form validation will throw an error and display "There was an error with your form. Please double check your information."<br><br>- result - error displayed "There was an error with your form. Please double check your information."
     </li>
+    <br>
     <li>
-        <strong>Duplicate form submission for single submision per user.</strong><br>- test - submit a second form after one is bound to the user.<br>- expected result - an error will display saying "You have already given your testimonial for our service. Thank you!".<br>- result - error will display saying "You have already given your testimonial for our service. Thank you!".
+        <strong>Duplicate form submission for single submision per user</strong><br>- test - submit a second form after one is bound to the user.<br><br>- expected result - an error will display saying "You have already given your testimonial for our service. Thank you!".<br><br>- result - error will display saying "You have already given your testimonial for our service. Thank you!".
     </li>
 </ul>
 <h3>Login & Registration Testing</h3>
 <ul>
     <li>
-        <strong>Duplicate Account.</strong><br>- test - try registering with a username already in use.<br>- expected result - user wont be able to register and the page will refresh with an error message stating the username is taken.<br>- result - user cant register and the page refreshed however no error message is displayed.
+        <strong>Duplicate Account</strong><br>- test - try registering with a username already in use.<br><br>- expected result - user wont be able to register and the page will refresh with an error message stating the username is taken.<br><br>- result - user cant register and the page refreshed however no error message is displayed.
     </li>
+    <br>
     <li>
-        <strong>Invalid Credentials.</strong><br>- test - try logging in with a invalid credentials e.g. wrong password or non existant username.<br>- expected result - user wont be able to login and the page will refresh with an error message stating the password is wrong or the username doesn't exist.<br>- result - user cant login and the page refreshed however no error message is displayed.
+        <strong>Invalid Credentials</strong><br>- test - try logging in with a invalid credentials e.g. wrong password or non existant username.<br><br>- expected result - user wont be able to login and the page will refresh with an error message stating the password is wrong or the username doesn't exist.<br><br>- result - user cant login and the page refreshed however no error message is displayed.
     </li>
 </ul>
 <h3>Security Testing</h3>
 <ul>
     <li>
-        <strong>CRUD for products</strong><br>- test - open product page with anonymous (no logged in) and non staff user account and check to see if they can see the links.<br>- expected result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.<br>- result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.
+        <strong>CRUD for products</strong><br>- test - open product page with anonymous (no logged in) and non staff user account and check to see if they can see the links.<br><br>- expected result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.<br><br>- result - non staff users including anonymous cant see the edit or delete links when clicking on a product page.
     </li>
+    <br>
     <li>
-        <strong>CRUD for products</strong><br>- test - type in the url to edit or delete a product with anonymous (no logged in) and non staff user account. e.g. https://csan.herokuapp.com/products/delete/4/<br>- expected result - non staff users including anonymous get redirected to the login page.<br>- result - non staff users including anonymous get redirected to the login page.
+        <strong>CRUD for products via url</strong><br>- test - type in the url to edit or delete a product with anonymous (no logged in) and non staff user account. e.g. https://csan.herokuapp.com/products/delete/4/<br><br>- expected result - non staff users including anonymous get redirected to the login page.<br><br>- result - non staff users including anonymous get redirected to the login page.
     </li>
+    <br>
     <li>
-        <strong>Login to admin site</strong><br>- test - try to log into the admin site as a non staff user.<br>- expected result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."<br>- result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."
+        <strong>Login to admin site</strong><br>- test - try to log into the admin site as a non staff user.<br><br>- expected result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."<br><br>- result - login page refreshed with an error displaying "Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive."
     </li>
+    <br>
     <li>
-        <strong></strong><br>- test - <br>- expected result - <br>- result -
+        <strong>Testimonial</strong><br>- test - try to write a testimonial and submit in the profile page without having an order.<br><br>- expected result - the form will not show and text "You must have made a purchase to submit a Testimonial." is displayed instead.<br><br>- result - the form did not show and text "You must have made a purchase to submit a Testimonial." is displayed instead.
     </li>
 </ul>
 <h2>Browsers</h2>

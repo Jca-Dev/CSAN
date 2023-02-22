@@ -70,8 +70,8 @@
 
         <div class="col-12 col-lg-6 pt-5 shadow">
             <h3 class="text-center mb-5">Wishlist</h3>
+            {% if wishlist %}
             <div class="table-responsive ptab w-100">
-                {% if wishlist %}
                 <table class="table table-sm mb-5">
                     {% for product in wishlist %}
                     <tr>
@@ -97,20 +97,21 @@
                     </tr>
                     {% endfor %}
                 </table>
-
-                {% else %}
+            </div>
+            {% else %}
+            <div class="table-responsive w-100">
                 <p class="lead text-center pt-5 mb-5">Your wishlist is empty.</p>
                 <div class="d-flex flex-column mb-2">
                     <a href="{% url 'home' %}" class="btn btn-dark pp-btn text-light rounded end-buttons">
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
                 </div>
-                {% endif %}
             </div>
+            {% endif %}
         </div>
-
         <div class="col-12 col-lg-6 pt-5 shadow">
             <h3 class="text-center">Submit Testimonial</h3>
+            {% if orders %}
             <form class="t-form" action="." method="POST">
                 {% csrf_token %}
                 {{ tform }}
@@ -118,6 +119,9 @@
                     id="submit-btn" type="submit" value="Submit Testimonial">
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
+            {% else %}
+            <p class="lead text-center pt-5 mb-5">You must have made a purchase to submit a Testimonial.</p>
+            {% endif %}
         </div>
     </div>
 </div>
