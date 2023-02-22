@@ -179,7 +179,7 @@ There is also a cookie consent popup that also links the privacy policy and cont
 </ul>
 <hr>
 <h1>Deployment</h1>
-<h2><strong>Requirements:</strong></h2>
+<h2>Requirements:</h2>
 <ul>   
     <li>AWS_ACCESS_KEY_ID - links AWS to heroku.</li>
     <li>AWS_SECRET_ACCESS_KEY - links AWS to heroku.</li>
@@ -221,12 +221,136 @@ There is also a cookie consent popup that also links the privacy policy and cont
         <br>stripe==5.0.0
     </li>
 </ul>
+<h2>AWS</h2>
+<ol>
+    <li>Create an account at aws.amazon.com</li>
+    <li>Open the S3 application and create an S3 bucket named csan-shop</li>
+    <li>Select your nearest AWS Region.</li>
+    <li>Uncheck the Block All Public access setting & acknowledge that the bucket will be public. It needs to be public in order to allow public access to static files.</li>
+    <li>go to properties then to static website hosting and click edit.</li>
+    <li>In properties turn on static website hosting and set the index.html and the error.html values, however for this app they aren't used.</li>
+    <li>
+    In the permissions section edit the CORS configuration and set it to the configuration below this list.</li>
+    <li>Edit the bucket policy then generate and set the below configuration:</li>
+    <li>Then go to the Access Control List and set the List objects permission for everyone under the Public Access section.</li>
+    <li>Open the IAM application to control access to the bucket and set up a user group called</li>
+    <li>Click on Policies, and Create Policy.</li>
+    <li>Click on the JSON tab and import a pre-built Amazon policy called AmazonS3FullAccess.</li>
+    <li>Set the settings in the JSON tab below the list.</li>
+    <li>Review policy, give it a name & description and then create policy.</li>
+    <li>To attach the policy to the group go to Groups then permissions and under add permissions select attach policy.</li>
+    <li>To create a user for the group click Add User and create one, ***make sure to download the CSV file which contains the user's access credentials.***</li>
+    <li>Finally add the user to the group created.</li>
+    !important the following AWS code in Settings.py. An environment variable called USE_AWS must be set to use these settings otherwise it will use local storage.
+</ol>
+CORS config
+
+```
+[
+    {
+    "AllowedHeaders": [
+    "Authorization"
+    ],
+    "AllowedMethods": [
+    "GET"
+    ],
+    "AllowedOrigins": [
+    "*"
+    ],
+    "ExposeHeaders": []
+    }
+]
+
+```
+<br>
+
+```
+{
+    "Version": "2012-10-17",
+    "Id": "your generated id",
+    "Statement": [
+        {
+            "Sid": "your generated id",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::csan-shop/*"
+        }
+    ]
+}
+```
+<br>
+<h2>Stripe</h2>
+<ol>
+    <li>Register for an account at stripe.com.</li>
+    <li>Log in and go to the developers section.</li>
+    <li>Then API keys.</li>
+    <li>Copy publishable and secret keys.</li>
+    <li>In your local environment(env.py):<br>
+    os.environ.setdefault('STRIPE_PUBLIC_KEY', 'YOUR_VALUE_GOES_HERE')<br>
+    os.environ.setdefault ('STRIPE_SECRET_KEY', 'YOUR_VALUE_GOES_HERE')</li> 
+    <li>In heroku config vars, add STRIPE_PUBLIC_KEY with the publishable key you copied from stripe and STRIPE_SECRET_KEY with the secret key value from stripe.</li>
+    <li>Back in the developers section of your stripe account go to webhooks.</li>
+    <li>Create a webhook with the url of your website /checkout/wh/ e.g. https://csan.herokuapp.com/checkout/wh/</li>
+    <li>Select the payment_intent.payment_failed and payment_intent.succeeded as events to send.</li>
+    <li>Copy the key created for this webhook.</li>
+    <li>In your local environment(env.py):<br>
+    os.environ.setdefault('STRIPE_WH_SECRET', 'YOUR_VALUE_GOES_HERE')</li>
+    <li>In heroku config vars, add STRIPE_WH_SECRET with the secret value.</li>
+    <li>Test the webhook and note the success/fail attempts for troubleshooting, see events and logs for further testing.</li>
+</ol>
+<br>
+<h2>Emails</h2>
+Specifically for gmail.
+<ol>
+    <li>Create an email account at https://support.google.com/mail/answer/56256?hl=en. Login and go to account settings.</li>
+    <li>Go to accounts and import and under Change account settings you will find other account settings.</li>
+    <li>In security under signing into Google, turn on 2-step verification and follow the steps to enable.</li>
+    <li>Once verified click on app passwords select other as the app and give the password a name for example Django-app.</li>
+    <li>Finish by clicking create and then a 16 digit password will be generated copy this 16 digit password.</li>
+    <li>In the env.py file:<br>
+    os.environ["EMAIL_HOST_USER"] = "gmail email address".<br>
+    os.environ["EMAIL_HOST_PASS"] = "the 16 digit password".</li>
+    <li>You will also need to set the variables EMAIL_HOST_PASS and EMAIL_HOST_USER in heroku as you did with stripe.</li>
+</ol>
+<br>
+<h2>Database</h2>
+<h3>Creation</h3>
+<ol>
+    <li>Log into to ElephantSQL.com to access your dashboard.</li>
+    <li>Create New Instance.</li>
+    <li>Set up your plan.</li>
+    <li>Select Region e.g. "EU-West-1 (Ireland)".</li>
+    <li>Review.</li>
+    <li>Create instance.</li>
+    <li>Return to the ElephantSQL dashboard and click on the database instance name for this project.</li>
+</ol>
+<br>
+<h3>Migration</h3>
+<ol>
+    <li>Navigate to the Postgres Migration Tool repo on github.</li>
+    <li>Click the Gitpod button to open a new workspace.</li>
+    <li>Run: python3 reel2reel.py in the terminal.</li>
+    <li>In a new browser tab go to your app in Heroku and go to Settings.</li>
+    <li>Reveal Config Vars.</li>
+    <li>In DATABASE_URL Config Var copy the value attained from step 3, It will start with postgres://</li>
+    <li>Return to Gitpod and paste in the value attained from step 3 and hit enter.</li>
+    <li>Get your ElephantSQL database URL from 'database creation' it will start with postgres://</li>
+    <li>Return to Gitpod and paste in the URL where prompted.</li>
+    <li>The data will now be downloaded from Heroku and uploaded to your ElephantSQL database.</li>
+    <li>To test that your database has been moved successfully, return to ElephantSQL and select BROWSER.</li>
+    <li>Open Table queries. If there are options in the dropdown, your tables have been created.</li>
+    <li>Select a table name you recognise, and then click Execute.</li>
+    <li>You should see your data displayed relating to the table you selected.</li>
+</ol>
 
 <h2>Heroku</h2>
-The project was deployed to Heroku via GitHub by:
+After following the previous steps the project was deployed to Heroku via GitHub by:
 <ol>
-    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the required variables from above</li>
-    <li>Linked the database (ElephantSQL), Static file host (AWS) and Stripe (Payments) through the variables in herouku by generating the keys (public and secret) from my account on the sites and pasting them linked with the variable names in settings.py EXACTLY as is, any variation in the names cause heroku to search for non-existant variables.</li>
+    <li>Log Into Heroku, create a new project, go to the settings page and add the required variables from 'requirements' above.</li>
+    <li>Link the database (ElephantSQL) by pasting the database url in the DATABASE_URL Config Var.</li>
+    <li>Link Static file host (AWS)</li>
+    <li>Link Stripe (Payments)</li>
     <li>Go to deploy, select deployment method as GitHub and typing in the GitHub repository name into the required field and selecting this repository name.</li>
     <li>Finally select deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
 </ol>
@@ -245,8 +369,23 @@ The page is now published and the link is in the settings section under Domains.
     <li>Change the current working directory to the location where you want the cloned directory to be made.</li>
     <li>Type `git clone`, and then paste the URL you copied in Step 3.</li>
     <li>Press Enter. Your local clone will be created.</li>
-    <li>Create a new Heroku app and follow the steps in Heroku deployment above.</li>
+    <li>Create a new Heroku app and follow the steps in Heroku deployment above or to use locally create an env.py file(do not commit this file to source control) in the root folder in your project with the following code:</li>
 </ol>
+
+```
+    import os
+    os.environ["SECRET_KEY"]= 'TO BE ADDED BY USER'
+    os.environ["STRIPE_PUBLIC_KEY"]= 'TO BE ADDED BY USER'
+    os.environ["STRIPE_SECRET_KEY"]= 'TO BE ADDED BY USER'
+    os.environ["STRIPE_WH_SECRET"]= 'TO BE ADDED BY USER'
+    os.environ["AWS_ACCESS_KEY_ID"]= 'TO BE ADDED BY USER'
+    os.environ["AWS_SECRET_ACCESS_KEY"]= 'TO BE ADDED BY USER'
+    os.environ["EMAIL_HOST_USER"]= 'TO BE ADDED BY USER'
+    os.environ["EMAIL_HOST_PASS"]= 'TO BE ADDED BY USER'
+    os.environ["USE_AWS"]= 'TO BE ADDED BY USER'
+    os.environ["DATABASE_URL"]= 'TO BE ADDED BY USER'
+    os.environ["DEVELOPMENT"] ='True'
+```
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for retrieve pictures and more detailed explanations of the above process.
     
@@ -267,6 +406,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
             <li>fill out the checkout form and payment options (card number & zip).</li>
         </ol><br>- expected result - redirected to the checkout success page with a success message "Order successfully processed! \ Your order number is {order_number}. A confirmation \ email will be sent to {order.email}." 
         with the order number, order details, product, quantity, options, and price should be displayed and finally an order line item should be displayed on the user profile page.<br><br>- result - redirected to the checkout success page with a success message "Order successfully processed! \ Your order number is {order_number}. A confirmation \ email will be sent to {order.email}." with the order number, order details, product, quantity, options, and price are displayed and finally an order line item was displayed on the user profile page.
+    </li>
+        <br>
+    <li>
+        <strong>Search function</strong><br>
+        - test - search for one of the categories e.g. cassette.
+        <br>- expected result - only products from the cassette category will desplay.<br><br>- result -only products from the cassette category were desplayed.
     </li>
     <br>
     <li>
