@@ -1,6 +1,8 @@
 <h1>CSAN E-Commerce Webiste</h1>
 <hr>
-    <p>CSAN is an E-Commerece website for B2C, the purpose of the site is to sell blinds directly to consumers instead of paying third party so sell them.<br> 
+    <p>CSAN is a fictional E-Commerece website for B2C, the purpose of the site is to sell blinds directly to consumers instead of paying third party so sell them.<br>
+    This website is for educational purposes only and the credit card payment functionality is not set up to accept real payments. If testing interactively use card details below.<br>
+    Visa = 4242424242424242 Expiration date = 4242 CVN = 424 ZIP = 42424<br>
     <a href="https://csan.herokuapp.com/">Click Here</a> to go to the live website.
 </p>
 <p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
@@ -14,8 +16,12 @@
     <li>Users return to show/recommend service to others.</li>
     <li>Frequent users connect via the social media platforms for information and updates.</li>
     <li>Users give positive feedback in the form of reviews and testimonials.</li>
+    <li>CRUD functionality for staff and superusers.</li>
 </ul>
+<hr>
+<h1>Database Schema</h1>
 
+![Database Schema](media/screenshots/database.png)
 <hr>
 <h1>Planning</h1>
 <hr>
