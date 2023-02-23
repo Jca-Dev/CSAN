@@ -398,6 +398,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <hr>
 <h1>Testing</h1>
 <h2>User Stories</h2>
+<br>
+<h3>Users</h3>
 <ul>
     <li>
         <strong>Add to cart</strong><br>- test - add options for the product and click add to cart.<br><br>- expected result - a success message should be generated with the item and quantity, the product and option input should show on the cart page.<br><br>- result - success message was generated with the item and quantity, the product and option input showed on the cart page.
@@ -434,6 +436,22 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
     <br>
     <li>
         <strong>Account creation</strong><br>- test - go to the register page and fill out the form, open the email received and click the link to and on the page loaded in your browser click confirm than login.<br><br>- expected result - the account is created with access to the profile page.<br><br>- result - the account was created with access to the profile page.
+    </li>
+</ul>
+<br>
+<h3>Staff</h3>
+<ul>
+    <br>
+    <li>
+        <strong>Create product</strong><br>- test - using a staff account select add products in the account dropdown, fill out the form and submit.<br><br>- expected result - product is added to the database, displayed and a message "Successfully added product" is displayed.<br><br>- result - product is added to the database, displayed and a message "Successfully added product" is displayed.
+    </li>
+    <br>
+    <li>
+        <strong>Edit product</strong><br>- test - using a staff account go to product detail page of a produt and click edit then fill out the form and submit.<br><br>- expected result - page is refreshed to the product detail page and is displaying the changes, a message "Successfully updated product!" is displayed.<br><br>- result - page is refreshed to the product detail page and is displaying the changes, a message "Successfully updated product!" is displayed.
+    </li>
+    <br>
+    <li>
+        <strong>Delete product</strong><br>- test - using a staff account go to product detail page of a produt and click remove and confirm the message.<br><br>- expected result - product is removed from the database and a message "product is deleted" is displayed.<br><br>- result - product is removed from the database and a message "product is deleted" is displayed.
     </li>
 </ul>
 <hr>
